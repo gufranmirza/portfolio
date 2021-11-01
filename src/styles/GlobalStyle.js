@@ -32,17 +32,14 @@ const GlobalStyle = createGlobalStyle`
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--green);
   }
   body::-webkit-scrollbar {
     width: 12px;
   }
-  body::-webkit-scrollbar-track {
-    background: var(--navy);
-  }
+
   body::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: var(--green);
     border-radius: 10px;
   }
 

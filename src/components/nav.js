@@ -36,9 +36,9 @@ const StyledHeader = styled.header`
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
-        transform: translateY(0px);
-        // background-color: rgba(10, 25, 47, 0.85);
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        // transform: translateY(0px);
+        background-color: var(--white-clean);
+        box-shadow: 0 2px 16px 0 rgb(32 33 36 / 7%), 0 26px 38px 0 rgb(32 33 36 / 9%);
       `};
 
     ${props =>
@@ -46,8 +46,8 @@ const StyledHeader = styled.header`
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
-        transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        // transform: translateY(calc(var(--nav-scroll-height) * -1));
+        box-shadow: 0 2px 16px 0 rgb(32 33 36 / 7%), 0 26px 38px 0 rgb(32 33 36 / 9%);
       `};
   }
 `;
@@ -56,7 +56,7 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: var(--dark-slate);
+  color: var(--slate);
   font-family: var(--font-mono);
   counter-reset: item 0;
   z-index: 12;
