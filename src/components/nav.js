@@ -100,18 +100,18 @@ const StyledLinks = styled.div`
     list-style: none;
 
     li {
-      margin: 0 5px;
+      margin: 0 3px;
       position: relative;
       counter-increment: item 1;
       font-size: var(--fz-xs);
 
       a {
-        padding: 10px;
+        padding: 10px 5px;
         font-weight: 600;
 
         &:before {
           content: '0' counter(item) '.';
-          margin-right: 5px;
+          margin-right: 1px;
           color: var(--green);
           font-size: var(--fz-xxs);
           text-align: right;

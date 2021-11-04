@@ -15,7 +15,7 @@ module.exports = {
       url: 'https://www.linkedin.com/in/gufranmirza',
     },
     {
-      name: 'Codepen',
+      name: 'CodeSendbox',
       url: 'https://codesandbox.io/u/gufranmirza',
     },
   ],
@@ -26,16 +26,28 @@ module.exports = {
       url: '/#about',
     },
     {
-      name: 'Experience',
-      url: '/#jobs',
+      name: 'OSS',
+      url: '/open-source',
     },
     {
-      name: 'Work',
-      url: '/#projects',
+      name: 'Blogs',
+      url: '/blogs',
     },
     {
-      name: 'Contact',
-      url: '/#contact',
+      name: 'Experiments',
+      url: '/experiments',
+    },
+    {
+      name: 'Talks',
+      url: '/talks',
+    },
+    {
+      name: 'Research',
+      url: '/research',
+    },
+    {
+      name: 'Products',
+      url: 'products',
     },
   ],
 

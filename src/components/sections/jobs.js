@@ -8,7 +8,9 @@ import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
-  max-width: 700px;
+  h2 {
+    color: var(--slate-dark);
+  }
 
   .inner {
     display: flex;
@@ -143,9 +145,11 @@ const StyledTabPanel = styled.div`
 
   ul {
     ${({ theme }) => theme.mixins.fancyList};
+    max-width: 700px;
   }
 
   h3 {
+    color: var(--slate-dark);
     margin-bottom: 2px;
     font-size: var(--fz-xxl);
     font-weight: 500;
