@@ -7,6 +7,13 @@ import { srConfig } from '@config';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
+const StyledProjectsSection = styled.div`
+  h2 {
+    color: var(--slate-dark);
+  }
+  padding-top: 40px;
+`;
+
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
 
@@ -347,10 +354,11 @@ const Featured = () => {
 
   return (
     <section id="projects">
-      <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
-      </h2>
-
+      <StyledProjectsSection>
+        <h2 className="numbered-heading" ref={revealTitle}>
+          Some Things I’ve Built
+        </h2>
+      </StyledProjectsSection>
       <StyledProjectsGrid>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {

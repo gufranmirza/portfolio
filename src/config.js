@@ -47,7 +47,7 @@ module.exports = {
     },
     {
       name: 'Products',
-      url: 'products',
+      url: '/products',
     },
   ],
 

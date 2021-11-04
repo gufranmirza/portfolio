@@ -11,9 +11,11 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 140px;
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
+    color: var(--slate-dark);
   }
 
   .archive-link {
@@ -264,7 +266,9 @@ const Projects = () => {
 
   return (
     <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+      <h2 className="numbered-heading" ref={revealTitle}>
+        Other Noteworthy Projects
+      </h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
         view the archive
