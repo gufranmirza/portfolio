@@ -103,10 +103,10 @@ const Footer = () => (
 
     <StyledLinks>
       <ol>
-        <TransitionGroup component={null}>
+        <TransitionGroup component={null} timeout={2000}>
           {navLinks &&
             navLinks.map(({ url, name }, i) => (
-              <CSSTransition key={i}>
+              <CSSTransition key={i} timeout={1000}>
                 <li key={i}>
                   <Link to={url}>{name}</Link>
                 </li>

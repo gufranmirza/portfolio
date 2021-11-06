@@ -6,7 +6,7 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledContactSection = styled.section`
   margin: 0 auto 100px;
-  padding: 0px 0 50px 0;
+  padding: 100px 0px 50px 0px;
 
   h2 {
     color: var(--slate-dark);
