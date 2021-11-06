@@ -15,16 +15,12 @@ module.exports = {
       url: 'https://www.linkedin.com/in/gufranmirza',
     },
     {
-      name: 'CodeSendbox',
+      name: 'Codepen',
       url: 'https://codesandbox.io/u/gufranmirza',
     },
   ],
 
   navLinks: [
-    {
-      name: 'About',
-      url: '/#about',
-    },
     {
       name: 'OSS',
       url: '/open-source',

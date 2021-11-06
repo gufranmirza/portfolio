@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
-import { socialMedia } from '@config';
+import { socialMedia, navLinks } from '@config';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Link } from 'gatsby';
 
 const StyledFooter = styled.footer`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -40,91 +42,81 @@ const StyledSocialLinks = styled.div`
   }
 `;
 
-const StyledCredit = styled.div`
-  color: var(--light-slate);
-  font-family: var(--font-mono);
-  font-size: var(--fz-xxs);
-  line-height: 1;
+const StyledLinks = styled.div`
+  display: flex;
+  align-items: center;
 
-  a {
-    padding: 10px;
+  color: var(--slate);
+  font-family: var(--font-mono);
+
+  @media (max-width: 768px) {
+    display: none;
   }
 
-  .github-stats {
-    margin-top: 10px;
+  ol {
+    ${({ theme }) => theme.mixins.flexBetween};
+    padding: 0;
+    margin: 0;
+    list-style: none;
 
-    & > span {
-      display: inline-flex;
-      align-items: center;
-      margin: 0 7px;
+    li {
+      margin: 0 3px;
+      position: relative;
+      counter-increment: item 1;
+      font-size: var(--fz-xs);
+
+      a {
+        padding: 10px 5px;
+
+        &:before {
+          content: '0' counter(item) '.';
+          margin-right: 1px;
+          color: var(--green);
+          font-size: var(--fz-xxs);
+          text-align: right;
+        }
+      }
     }
-    svg {
-      display: inline-block;
-      margin-right: 5px;
-      width: 14px;
-      height: 14px;
-    }
+  }
+
+  .resume-button {
+    ${({ theme }) => theme.mixins.smallButton};
+    margin-left: 15px;
+    font-size: var(--fz-xs);
   }
 `;
 
-const Footer = () => {
-  const [githubInfo, setGitHubInfo] = useState({
-    stars: null,
-    forks: null,
-  });
+const Footer = () => (
+  <StyledFooter>
+    <StyledSocialLinks>
+      <ul>
+        {socialMedia &&
+          socialMedia.map(({ name, url }, i) => (
+            <li key={i}>
+              <a href={url} aria-label={name}>
+                <Icon name={name} />
+              </a>
+            </li>
+          ))}
+      </ul>
+    </StyledSocialLinks>
 
-  useEffect(() => {
-    if (process.env.NODE_ENV !== 'production') {
-      return;
-    }
-    fetch('https://api.github.com/repos/bchiang7/v4')
-      .then(response => response.json())
-      .then(json => {
-        const { stargazers_count, forks_count } = json;
-        setGitHubInfo({
-          stars: stargazers_count,
-          forks: forks_count,
-        });
-      })
-      .catch(e => console.error(e));
-  }, []);
-
-  return (
-    <StyledFooter>
-      <StyledSocialLinks>
-        <ul>
-          {socialMedia &&
-            socialMedia.map(({ name, url }, i) => (
-              <li key={i}>
-                <a href={url} aria-label={name}>
-                  <Icon name={name} />
-                </a>
-              </li>
+    <StyledLinks>
+      <ol>
+        <TransitionGroup component={null}>
+          {navLinks &&
+            navLinks.map(({ url, name }, i) => (
+              <CSSTransition key={i}>
+                <li key={i}>
+                  <Link to={url}>{name}</Link>
+                </li>
+              </CSSTransition>
             ))}
-        </ul>
-      </StyledSocialLinks>
-
-      <StyledCredit tabindex="-1">
-        <a href="https://github.com/bchiang7/v4">
-          <div>Designed &amp; Built by Brittany Chiang</div>
-
-          {githubInfo.stars && githubInfo.forks && (
-            <div className="github-stats">
-              <span>
-                <Icon name="Star" />
-                <span>{githubInfo.stars.toLocaleString()}</span>
-              </span>
-              <span>
-                <Icon name="Fork" />
-                <span>{githubInfo.forks.toLocaleString()}</span>
-              </span>
-            </div>
-          )}
-        </a>
-      </StyledCredit>
-    </StyledFooter>
-  );
-};
+        </TransitionGroup>
+      </ol>
+    </StyledLinks>
+  </StyledFooter>
+);
 
 Footer.propTypes = {
   githubInfo: PropTypes.object,
