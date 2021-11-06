@@ -12,6 +12,10 @@ const StyledJobsSection = styled.section`
     color: var(--slate-dark);
   }
 
+  a {
+    color: var(--green);
+  }
+
   .inner {
     display: flex;
 
