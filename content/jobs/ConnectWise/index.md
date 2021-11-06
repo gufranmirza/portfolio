@@ -1,10 +1,10 @@
 ---
-date: '2017-12-21'
-title: 'UI Engineer Co-op'
-company: 'Apple'
-location: 'Cupertino, CA'
-range: 'July - December 2017'
-url: 'https://www.apple.com/music/'
+date: '2019-06-204'
+title: 'Software Engineer'
+company: 'ConnectWise LLC'
+location: 'Pune, IN'
+range: 'July 2019 - Feb 2021'
+url: 'https://www.connectwise.com/'
 ---
 
 - Developed and shipped highly interactive web applications for Apple Music using Ember.js
