@@ -128,7 +128,12 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = [
+    'Distributed Systems',
+    'High Performance Computing',
+    'Distributed Ledger Tech',
+    'Software Architecture and Design',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -138,33 +143,41 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Hello! My name is Gufran and I enjoy building software that is scalable, robust, and
+              secure by design. My interest in software development started back in 2012 when I
+              tried to build a simple website.
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
-            </p>
-
-            <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
+              During my college days, I heavily got interested in building Community Platform for
+              Developers,{' '}
+              <a href="https://ednsquare.com/" target="_blank" rel="noreferrer">
+                {' '}
+                Ednsquare — Blogging & QnA Platform{' '}
               </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              It serves as a playground for developers to learn & share knowledge.
             </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>
+              Fast-forward to today, and I’ve had the privilege of working on large-scale enterprise
+              software and solving challenging problems for customers. I also works with a few early
+              stage startups. Currently, I’m focused on building new products and services at{' '}
+              <a href="https://www.ibm.com/cloud/" target="_blank" rel="noreferrer">
+                IBM Cloud Platform
+              </a>
+            </p>
+
+            <p>
+              Over the course of time, I got the chance to work on various technology and
+              frameworks, I believe in{' '}
+              <a
+                href="https://en.wikipedia.org/wiki/Software_craftsmanship"
+                target="_blank"
+                rel="noreferrer">
+                Software Craftsmanship
+              </a>
+              . Here are a few areas of computing that I am interested in{' '}
+            </p>
           </div>
 
           <ul className="skills-list">
