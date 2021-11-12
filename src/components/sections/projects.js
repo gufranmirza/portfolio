@@ -154,7 +154,7 @@ const StyledProject = styled.li`
       font-family: var(--font-mono);
       font-size: var(--fz-xxs);
       line-height: 1.75;
-      color: var(--slate);
+      color: var(--green);
 
       &:not(:last-of-type) {
         margin-right: 15px;
@@ -252,7 +252,7 @@ const Projects = () => {
           {tech && (
             <ul className="project-tech-list">
               {tech.map((tech, i) => (
-                <li key={i}>{tech}</li>
+                <li key={i}>#{tech}</li>
               ))}
             </ul>
           )}
