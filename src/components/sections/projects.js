@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -16,6 +16,10 @@ const StyledProjectsSection = styled.section`
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
     color: var(--slate-dark);
+  }
+
+  p {
+    text-align: left;
   }
 
   .archive-link {
@@ -268,12 +272,14 @@ const Projects = () => {
   return (
     <StyledProjectsSection>
       <h2 className="numbered-heading" ref={revealTitle}>
-        Other Noteworthy Projects
+        Open Source Software
       </h2>
 
-      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
-      </Link>
+      <p>
+        Below are the list of the projects that I have built, and open sourced. Most of these
+        projects are Starter Kits & POCs that i built internally for experimentation and later open
+        sourced it
+      </p>
 
       <ul className="projects-grid">
         {prefersReducedMotion ? (
