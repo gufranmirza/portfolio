@@ -77,15 +77,7 @@ const StyledPost = styled.li`
   }
 
   .post__icon {
-    ${({ theme }) => theme.mixins.flexBetween};
-    color: var(--green);
-    margin-bottom: 30px;
-    margin-left: -5px;
-
-    svg {
-      width: 40px;
-      height: 40px;
-    }
+    height: 182px;
   }
 
   .post__title {
@@ -182,8 +174,8 @@ const PensievePage = ({ location, data }) => {
                 return (
                   <StyledPost key={i}>
                     <div className="post__root">
-                      <div>
-                        <GatsbyImage image={image} alt={title} className="img" />
+                      <div className="post__icon">
+                        <GatsbyImage className="post__icon" image={image} alt={title} />
                       </div>
                       <div className="post__inner">
                         <header>
