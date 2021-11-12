@@ -22,14 +22,6 @@ const StyledProjectsSection = styled.section`
     text-align: left;
   }
 
-  .archive-link {
-    font-family: var(--font-mono);
-    font-size: var(--fz-sm);
-    &:after {
-      bottom: 0.1em;
-    }
-  }
-
   .projects-grid {
     ${({ theme }) => theme.mixins.resetList};
     display: grid;
