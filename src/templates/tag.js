@@ -16,6 +16,7 @@ const StyledTagsContainer = styled.main`
   h1 {
     ${({ theme }) => theme.mixins.flexBetween};
     margin-bottom: 50px;
+    color: var(--dark-slate);
 
     a {
       font-size: var(--fz-lg);
@@ -30,7 +31,7 @@ const StyledTagsContainer = styled.main`
         font-size: inherit;
         margin: 0;
         a {
-          color: var(--light-slate);
+          color: var(--slate);
         }
       }
       .subtitle {
@@ -56,13 +57,13 @@ const TagTemplate = ({ pageContext, data, location }) => {
       <StyledTagsContainer>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link to="/pensieve">All memories</Link>
+          <Link to="/blogs">All blogs</Link>
         </span>
 
         <h1>
           <span>#{tag}</span>
           <span>
-            <Link to="/pensieve/tags">View all tags</Link>
+            <Link to="/blogs/tags">View all tags</Link>
           </span>
         </h1>
 
@@ -86,7 +87,7 @@ const TagTemplate = ({ pageContext, data, location }) => {
                   {tags &&
                     tags.length > 0 &&
                     tags.map((tag, i) => (
-                      <Link key={i} to={`/pensieve/tags/${kebabCase(tag)}/`} className="tag">
+                      <Link key={i} to={`/blogs/tags/${kebabCase(tag)}/`} className="tag">
                         #{tag}
                       </Link>
                     ))}

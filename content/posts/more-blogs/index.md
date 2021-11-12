@@ -7,7 +7,6 @@ cover: './cover.jpg'
 
 slug: 'https://ednsquare.com/@gufranmirza'
 tags:
-  - Golang
-  - gRPC
-  - protobuf
+  - ednsquare
+  - dev
 ---
