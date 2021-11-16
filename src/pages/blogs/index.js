@@ -154,13 +154,13 @@ const PensievePage = ({ location, data }) => {
       <MainContainer className="fillHeight">
         <StyledMainContainer>
           <h2 className="numbered-heading" ref={revealTitle}>
-            Open Source Software
+            Blogs
           </h2>
 
           <p>
-            Below are the list of the projects that I have built, and open sourced. Most of these
-            projects are Starter Kits & POCs that i built internally for experimentation and later
-            open sourced it
+            I do write about whatever I am learning and doing, mostly about the software
+            development. Below are the blogs I have written and I am going to publish more blogs as
+            soon as I got some time
           </p>
 
           <StyledGrid>
