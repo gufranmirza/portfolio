@@ -158,9 +158,9 @@ const PensievePage = ({ location, data }) => {
           </h2>
 
           <p>
-            I do write about whatever I am learning and doing, mostly about the software
-            development. Below are the blogs I have written and I am going to publish more blogs as
-            soon as I got some time
+            I do write about whatever I am learning and doing, mostly about software development.
+            Below are the blogs I have written and I am going to publish more blogs whenever I got
+            some time to write
           </p>
 
           <StyledGrid>
