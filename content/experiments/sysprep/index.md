@@ -1,23 +1,17 @@
 ---
-date: '1'
+date: '2'
 title: 'Universal Imaging of windows OS'
-cover: './halcyon.png'
-github: 'https://github.com/bchiang7/halcyon-site'
-external: 'https://halcyon-theme.netlify.com/'
+cover: './cover.jpeg'
+github: 'https://www.youtube.com/watch?v=c1Z4gF110iw/'
+external: 'https://www.youtube.com/watch?v=c1Z4gF110iw/'
 tech:
-  - VS Code
-  - Sublime Text
-  - Atom
-  - iTerm2
-  - Hyper
+  - Windows
+  - SysPrep
+  - OS
 ---
 
-Below are the code Core Tasks automated by the OLM - https://olm.operatorframework.io/docs/tasks/
+💡 — Modeling the Universal image of Windows OS, Including the Device Derivers and Softwares, that can be installed on host system within minutes
 
-- Creating operator manifests
-- Creating an Operator Bundle
-- Creating a Catalog of operators
-- Make a Catalog available on Cluster
-- List operators available to install on the cluster
-- Install your operator with OLM
-- Uninstall your operator
+Sysprep Generalizes a Windows installation alongside the Universal Device Derivers. On restoring the image on the host system it will automatically pick up correct device drivers.
+
+It removes PC-specific information from the Windows image. ​However you may still have issues when related to hardware compatibility between AMD/Intel CPUs
