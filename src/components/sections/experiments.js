@@ -12,6 +12,7 @@ const StyledProjectsSection = styled.div`
     color: var(--slate-dark);
   }
   padding-top: 40px;
+  padding-bottom: 40px;
 `;
 
 const StyledProjectsGrid = styled.ul`
@@ -131,7 +132,7 @@ const StyledProject = styled.li`
   }
 
   .project-title {
-    color: var(--lightest-slate);
+    color: var(--slate-dark);
     font-size: clamp(24px, 5vw, 28px);
 
     @media (min-width: 768px) {
@@ -160,13 +161,21 @@ const StyledProject = styled.li`
 
   .project-description {
     ${({ theme }) => theme.mixins.boxShadow};
+    text-align: left;
     position: relative;
     z-index: 2;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    color: var(--light-slate);
+    background-color: var(--white-clean);
+    color: var(--slate);
     font-size: var(--fz-lg);
+
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: var(--dark-slate);
+    }
 
     @media (max-width: 768px) {
       padding: 20px 0;
@@ -356,8 +365,13 @@ const Featured = () => {
     <section id="projects">
       <StyledProjectsSection>
         <h2 className="numbered-heading" ref={revealTitle}>
-          Some Things I’ve Built
+          Random Experiments
         </h2>
+
+        <p>
+          I was curious about some of the things, so have tried to explore and understand them
+          better. Below are some of the random ideas I have tried and what I found in conclusion
+        </p>
       </StyledProjectsSection>
       <StyledProjectsGrid>
         {featuredProjects &&
@@ -370,7 +384,7 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
+                    {/* <p className="project-overline">Featured Project</p> */}
 
                     <h3 className="project-title">
                       <a href={external}>{title}</a>
