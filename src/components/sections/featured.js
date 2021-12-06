@@ -11,7 +11,9 @@ const StyledProjectsSection = styled.div`
   h2 {
     color: var(--slate-dark);
   }
+
   padding-top: 40px;
+  padding-bottom: 40px;
 `;
 
 const StyledProjectsGrid = styled.ul`
@@ -131,7 +133,7 @@ const StyledProject = styled.li`
   }
 
   .project-title {
-    color: var(--lightest-slate);
+    color: var(--dark-slate);
     font-size: clamp(24px, 5vw, 28px);
 
     @media (min-width: 768px) {
@@ -164,9 +166,10 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    color: var(--light-slate);
+    background-color: var(--white-clean);
+    color: var(--slate);
     font-size: var(--fz-lg);
+    text-align: left;
 
     @media (max-width: 768px) {
       padding: 20px 0;
@@ -290,7 +293,7 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        background-color: var(--navy);
+        // background-color: var(--navy);
         mix-blend-mode: screen;
       }
     }
@@ -356,8 +359,14 @@ const Featured = () => {
     <section id="projects">
       <StyledProjectsSection>
         <h2 className="numbered-heading" ref={revealTitle}>
-          Some Things I’ve Built
+          Products I’ve Built
         </h2>
+
+        <p>
+          I am interested in building exceptional products & experiences. Below are some of the
+          products i have Built or working on them. I am also working with a few early stage
+          startups to build something that is worth of it
+        </p>
       </StyledProjectsSection>
       <StyledProjectsGrid>
         {featuredProjects &&
@@ -370,8 +379,6 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
-
                     <h3 className="project-title">
                       <a href={external}>{title}</a>
                     </h3>

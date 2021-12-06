@@ -4,6 +4,7 @@ title: 'Portable Compute Stick'
 cover: './cover.jpg'
 github: 'https://www.youtube.com/watch?v=IwHoGnPu9fM'
 external: 'https://www.youtube.com/watch?v=IwHoGnPu9fM'
+cta: 'https://www.youtube.com/watch?v=IwHoGnPu9fM'
 tech:
   - OS
   - Intel/AMD

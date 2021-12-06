@@ -4,6 +4,7 @@ title: 'Universal Imaging of windows OS'
 cover: './cover.jpeg'
 github: 'https://www.youtube.com/watch?v=c1Z4gF110iw/'
 external: 'https://www.youtube.com/watch?v=c1Z4gF110iw/'
+cta: 'https://www.youtube.com/watch?v=c1Z4gF110iw/'
 tech:
   - Windows
   - SysPrep

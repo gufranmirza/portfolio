@@ -4,6 +4,7 @@ title: 'Virtual Cloud Desktop'
 cover: './cover.jpg'
 github: 'https://www.youtube.com/watch?v=bn_Dj7Ak8Pg'
 external: 'https://www.youtube.com/watch?v=bn_Dj7Ak8Pg'
+cta: 'https://www.youtube.com/watch?v=bn_Dj7Ak8Pg'
 tech:
   - OS
   - Cloud
