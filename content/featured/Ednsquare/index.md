@@ -15,5 +15,5 @@ tech:
 EdnSquare began in my dorm room in 2017 while studying in college. We assembled a small team of people interested startups & building products,
 we together build this platform in around 3 years.
 
-Currently it has ~40k monthly active users. Developers can join communities of their choice, ask Questions or publish Blogs, start a Discussion
+Currently it has ~50k monthly active users. Developers can join communities of their choice, ask Questions or publish Blogs, start a Discussion
 on a Topic

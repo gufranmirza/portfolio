@@ -65,6 +65,13 @@ const StyledPost = styled.li`
     align-items: flex-start;
     position: relative;
     height: 100%;
+    background: #02c39a0f;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   .post__inner {

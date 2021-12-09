@@ -61,7 +61,6 @@ const StyledProject = styled.li`
   }
 
   .project-inner {
-    ${({ theme }) => theme.mixins.boxShadow};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
     align-items: flex-start;
@@ -69,7 +68,7 @@ const StyledProject = styled.li`
     height: 100%;
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
-    background-color: var(--clean-white);
+    background: #02c39a0f;
     transition: var(--transition);
   }
 
