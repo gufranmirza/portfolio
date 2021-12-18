@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 
-import { Layout, Featured } from '@components';
+import { Layout, Talks } from '@components';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
@@ -13,7 +13,7 @@ const IndexPage = ({ location }) => (
   <Layout location={location}>
     <StyledMainContainer className="fillHeight">
       <Helmet title="Talks" />
-      <Featured />
+      <Talks />
     </StyledMainContainer>
   </Layout>
 );
