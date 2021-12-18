@@ -157,7 +157,7 @@ const PensievePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Pensieve" />
+      <Helmet title="Blogs" />
       <MainContainer className="fillHeight">
         <StyledMainContainer>
           <h2 className="numbered-heading" ref={revealTitle}>

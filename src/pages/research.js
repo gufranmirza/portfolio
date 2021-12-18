@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+
 import styled from 'styled-components';
 import { Layout, Projects } from '@components';
 
@@ -10,6 +12,7 @@ const StyledMainContainer = styled.main`
 const IndexPage = ({ location }) => (
   <Layout location={location}>
     <StyledMainContainer className="fillHeight">
+      <Helmet title="Research" />
       <Projects />
     </StyledMainContainer>
   </Layout>

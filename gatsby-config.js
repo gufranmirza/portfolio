@@ -155,5 +155,14 @@ module.exports = {
         trackingId: 'UA-116249384-2',
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        custom: {
+          families: ['Calibre, SF Mono'],
+          urls: ['/fonts/fonts.css'],
+        },
+      },
+    },
   ],
 };
