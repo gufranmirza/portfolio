@@ -16,3 +16,4 @@ export { default as IconTwitter } from './twitter';
 export { default as Mike } from './mike';
 export { default as Play } from './play';
 export { default as Map } from './map';
+export { default as Filter } from './filter';

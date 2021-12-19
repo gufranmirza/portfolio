@@ -13,5 +13,6 @@ export { default as Jobs } from './sections/jobs';
 export { default as Featured } from './sections/featured';
 export { default as Experiments } from './sections/experiments';
 export { default as Talks } from './sections/talks';
+export { default as Research } from './sections/research';
 export { default as Projects } from './sections/projects';
 export { default as Contact } from './sections/contact';

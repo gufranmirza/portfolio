@@ -18,6 +18,7 @@ import {
   Mike,
   Map,
   Play,
+  Filter,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
@@ -56,6 +57,8 @@ const Icon = ({ name }) => {
       return <Map />;
     case 'Play':
       return <Play />;
+    case 'Filter':
+      return <Filter />;
     default:
       return <IconExternal />;
   }
