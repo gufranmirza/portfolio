@@ -10,7 +10,6 @@ const StyledHeroSection = styled.section`
   flex-direction: column;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 0;
 
   @media (max-width: 480px) and (min-height: 700px) {
     padding-bottom: 10vh;
@@ -24,7 +23,7 @@ const StyledHeroSection = styled.section`
     font-weight: 400;
 
     @media (max-width: 480px) {
-      margin: 0 0 20px 2px;
+      margin: 40px 0 20px 2px;
     }
   }
 
@@ -81,7 +80,7 @@ const Hero = () => {
   );
   const five = (
     <a className="email-link" href="/products" target="_blank" rel="noreferrer">
-      Check out Products I built!
+      Checkout Products I have built!
     </a>
   );
 

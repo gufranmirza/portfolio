@@ -9,7 +9,7 @@ url: 'https://www.connectwise.com/'
 
 - Designed, developed, and maintained Micro-services and APIs.
 - Implemented gRPC in Micro-services that resulted in ~7X performance improvement
-- Built CDN system from scratch, that helped in distributing software packages and OS-Patches at scale
+- Built a CDN system from scratch, that helped in distributing software packages and OS-Patches from Datacenter
 - Performed production code deployments and monitoring regularly
 - Developed plugins using Windows API / Linux Kernel API that helped in performing OS-level operations on host systems
 - Built, modified, and refactored code within core components of the application for performance tuning

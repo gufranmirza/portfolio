@@ -129,10 +129,10 @@ const About = () => {
   }, []);
 
   const skills = [
-    'Distributed Systems',
+    'Distributed Systems & Networking',
     'High Performance Computing',
-    'Distributed Ledger Tech',
     'Software Architecture and Design',
+    'Confidential/Trustless Computing',
   ];
 
   return (
@@ -169,7 +169,8 @@ const About = () => {
 
             <p>
               Over the course of time, I got the chance to work on various technology and
-              frameworks, I believe in{' '}
+              frameworks, but I am more interested in building exceptional softwares rather than
+              just being attached to specific framework or technology. I believe in{' '}
               <a
                 href="https://en.wikipedia.org/wiki/Software_craftsmanship"
                 target="_blank"
