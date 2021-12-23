@@ -191,8 +191,6 @@ const Projects = () => {
               tech
               github
               presentation
-              location
-              locationName
             }
             html
           }
@@ -201,7 +199,7 @@ const Projects = () => {
     }
   `);
 
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false); // eslint-disable-line
   const revealTitle = useRef(null);
   const revealArchiveLink = useRef(null);
   const revealProjects = useRef([]);
@@ -224,7 +222,7 @@ const Projects = () => {
 
   const projectInner = node => {
     const { frontmatter, html } = node;
-    const { github, title, tech, presentation, location, locationName } = frontmatter;
+    const { github, title, tech, presentation } = frontmatter;
 
     return (
       <div className="project-inner">
@@ -268,16 +266,6 @@ const Projects = () => {
                 <Icon name="Play" />
               </a>
             )}
-            {location && (
-              <a
-                href={location}
-                aria-label="Location"
-                className="map"
-                target="_blank"
-                rel="noreferrer">
-                <Icon name="Map" /> &nbsp;<span> {locationName} </span>
-              </a>
-            )}
           </div>
         </div>
       </div>
@@ -291,9 +279,9 @@ const Projects = () => {
       </h2>
 
       <p>
-        These are all the talks I have given over the past couple years. Check out these talks.{' '}
-        <br />
-        Mostly on location, sometimes remote.
+        I am not a full time researcher :-P. These are some of the topics I have spent or spending
+        good amount of time to understand the things in greater details, possibly looking for some
+        answers
       </p>
 
       <ul className="projects-grid">
@@ -327,9 +315,9 @@ const Projects = () => {
         )}
       </ul>
 
-      <button className="more-button" onClick={() => setShowMore(!showMore)}>
+      {/* <button className="more-button" onClick={() => setShowMore(!showMore)}>
         Show {showMore ? 'Less' : 'More'}
-      </button>
+      </button> */}
     </StyledProjectsSection>
   );
 };

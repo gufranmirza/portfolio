@@ -250,16 +250,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          frontmatter {
-            date
-            title
-            tech
-            github
-            external
-            ios
-            android
-            company
-          }
           html
         }
       }
