@@ -170,7 +170,7 @@ const About = () => {
             <p>
               Over the course of time, I got the chance to work on various technology and
               frameworks, but I am more interested in building exceptional softwares rather than
-              just being attached to specific framework or technology. I believe in{' '}
+              just being attached to specific framework or technology and I believe in{' '}
               <a
                 href="https://en.wikipedia.org/wiki/Software_craftsmanship"
                 target="_blank"

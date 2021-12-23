@@ -140,8 +140,6 @@ const StyledProject = styled.li`
     }
 
     @media (max-width: 768px) {
-      color: var(--white);
-
       a {
         position: static;
 
@@ -219,7 +217,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--lightest-slate);
+        color: var(--slate);
       }
     }
   }
@@ -231,6 +229,10 @@ const StyledProject = styled.li`
     margin-top: 10px;
     margin-left: -10px;
     color: var(--lightest-slate);
+
+    @media (max-width: 768px) {
+      color: var(--slate);
+    }
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -313,7 +315,7 @@ const StyledProject = styled.li`
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
+        filter: contrast(0) brightness(100%);
       }
     }
   }
