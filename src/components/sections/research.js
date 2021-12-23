@@ -279,9 +279,8 @@ const Projects = () => {
       </h2>
 
       <p>
-        I am not a full time researcher :-P. These are some of the topics I have spent or spending
-        good amount of time to understand the things in greater details, possibly looking for some
-        answers
+        I am not a full-time researcher :-P. These are some of the topics I have spent a good amount
+        of time understanding things in greater detail, possibly looking for some answers
       </p>
 
       <ul className="projects-grid">
