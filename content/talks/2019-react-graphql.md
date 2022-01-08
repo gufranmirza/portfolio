@@ -1,8 +1,8 @@
 ---
 date: '2019-06-01'
 title: 'Full-Stack error handling with React and GraphQL'
-github: 'https://github.com/gufranmirza/talks/tree/main/2019-react-graphql'
-presentation: 'https://github.com/gufranmirza/talks/blob/main/2019-react-graphql/Error%20Handling%20With%20React%20%26%20GraphQL.pdf'
+github: 'https://github.com/gufranmirza/talks/tree/main/2019/01-react-graphql'
+presentation: 'https://github.com/gufranmirza/talks/tree/main/2019/01-react-graphql/Error%20Handling%20With%20React%20%26%20GraphQL.pdf'
 location: 'https://www.meetup.com/ReactJS-and-Friends/events/262800538/'
 locationName: 'React Pune Meetup'
 tech:

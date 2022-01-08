@@ -1,8 +1,8 @@
 ---
 date: '2022-08-01'
 title: 'Securing Cloud Native Workloads with Istio'
-github: 'https://github.com/gufranmirza/talks/tree/main/2021-cloud-native-istio-security'
-presentation: 'https://github.com/gufranmirza/talks/tree/main/2021-cloud-native-istio-security'
+github: 'https://github.com/gufranmirza/talks/tree/main/2022/01-cloud-native-istio-security'
+presentation: 'https://slides.com/gufranmirza/deck/fullscreen'
 location: 'https://www.linkedin.com/video/event/urn:li:ugcPost:6862530583474634752/'
 locationName: 'DevSecOps Conf 2022'
 tech:
