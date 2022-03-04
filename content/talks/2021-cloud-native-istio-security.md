@@ -1,5 +1,5 @@
 ---
-date: '2022-08-01'
+date: '2022-01-01'
 title: 'Securing Cloud Native Workloads with Istio'
 github: 'https://github.com/gufranmirza/talks/tree/main/2022/01-cloud-native-istio-security'
 presentation: 'https://slides.com/gufranmirza/deck/fullscreen'
