@@ -1,6 +1,6 @@
 ---
 date: '2022-04-29'
-title: 'go-routines-scheduling'
+title: 'Go-routines Scheduling and Threading'
 github: 'https://github.com/gufranmirza/talks/tree/main/2022/03-go-routines-scheduling'
 presentation: 'https://github.com/gufranmirza/talks/blob/main/2022/03-go-routines-scheduling/slides/Goroutines%20%20demystified.pdf'
 location: 'https://www.meetup.com/Golang-Pune/events/285174680/'
