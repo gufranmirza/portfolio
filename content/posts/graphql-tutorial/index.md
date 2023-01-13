@@ -4,8 +4,10 @@ description: Tutorial series dedicated to learning the graphql from scratch with
 date: 2020-04-21
 draft: false
 cover: './cover.png'
-slug: 'https://ednsquare.com/story/a-comprehensive-guide-to-learn-graphql-its-core-concepts-with-examples------gr6f1v'
+slug: /blogs/a-comprehensive-guide-to-learn-graphql-its-core-concepts-with-examples
 tags:
   - GraphQL
   - APIs
 ---
+
+https://ednsquare.com/story/a-comprehensive-guide-to-learn-graphql-its-core-concepts-with-examples------gr6f1v

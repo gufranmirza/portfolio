@@ -7,7 +7,7 @@ const variables = css`
     --lightest-navy: #233554;
     --navy-shadow: rgba(2, 12, 27, 0.7);
     --dark-slate: #495670;
-    --slate: #8892b0;
+    --slate: #687387;
     --light-slate: #a8b2d1;
     --lightest-slate: #ccd6f6;
     --white: #e6f1ff;
@@ -21,7 +21,7 @@ const variables = css`
       sans-serif;
     --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
 
-    --fz-xxs: 12px;
+    --fz-xxs: 13px;
     --fz-xs: 13px;
     --fz-sm: 14px;
     --fz-md: 16px;
