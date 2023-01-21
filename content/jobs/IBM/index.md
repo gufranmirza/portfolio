@@ -3,7 +3,7 @@ date: '2021-03-25'
 title: 'Software Engineer'
 company: 'IBM Software Lab'
 location: 'Bangalore, IN'
-range: 'March 2021 - Present'
+range: 'March 2021 - July 2022'
 url: 'https://www.ibm.com/cloud'
 ---
 

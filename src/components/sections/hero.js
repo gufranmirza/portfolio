@@ -69,10 +69,15 @@ const Hero = () => {
       <p>
         I’m a software engineer specializing in building (and occasionally designing) large scale
         Distributed systems & Softwares. I have an entrepreneurial mindset and I am interested in
-        building exceptional products & experiences. Currently, I’m focused on building new products
-        and services at{' '}
-        <a href="https://www.ibm.com/cloud/" target="_blank" rel="noreferrer">
-          IBM Cloud Platform
+        building exceptional products & experiences.
+      </p>
+
+      <p>
+        I’m back to school one more time and I am working towards my Masters In Computer Science
+        from{' '}
+        <a href="https://cs.gmu.edu" target="_blank" rel="noreferrer">
+          {' '}
+          George Mason University{' '}
         </a>
         .
       </p>

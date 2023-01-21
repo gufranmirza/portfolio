@@ -130,9 +130,9 @@ const About = () => {
 
   const skills = [
     'Distributed Systems & Networking',
-    'High Performance Computing',
-    'Software Architecture and Design',
     'Confidential/Trustless Computing',
+    'Software Architecture and Design',
+    'High Performance Computing',
   ];
 
   return (
@@ -161,7 +161,7 @@ const About = () => {
             <p>
               Fast-forward to today, and I’ve had the privilege of working on large-scale enterprise
               software and solving challenging problems for customers. I also works with a few early
-              stage startups. Currently, I’m focused on building new products and services at{' '}
+              stage startups. I also have worked on building new products and services at{' '}
               <a href="https://www.ibm.com/cloud/" target="_blank" rel="noreferrer">
                 IBM Cloud Platform
               </a>
