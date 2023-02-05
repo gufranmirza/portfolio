@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
@@ -162,7 +163,7 @@ const StyledProject = styled.li`
   }
 `;
 
-const Projects = () => {
+const Projects = ({ grid_limit = 6 }) => {
   const data = useStaticQuery(graphql`
     query {
       projects: allMarkdownRemark(
@@ -203,9 +204,8 @@ const Projects = () => {
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
-  const GRID_LIMIT = 6;
   const projects = data.projects.edges.filter(({ node }) => node);
-  const firstSix = projects.slice(0, GRID_LIMIT);
+  const firstSix = projects.slice(0, grid_limit);
   const projectsToShow = showMore ? projects : firstSix;
 
   const projectInner = node => {
@@ -263,13 +263,13 @@ const Projects = () => {
   return (
     <StyledProjectsSection>
       <h2 className="numbered-heading" ref={revealTitle}>
-        Open Source Software
+        Open Source Projects
       </h2>
 
       <p>
         Below are the list of the projects that I have built, and open sourced. Most of these
-        projects are Starter Kits & POCs that i built internally for experimentation and later open
-        sourced it
+        projects are Starter Kits & POCs that I built internally for experimentation and later open
+        sourced it.
       </p>
 
       <ul className="projects-grid">
@@ -287,13 +287,13 @@ const Projects = () => {
                 <CSSTransition
                   key={i}
                   classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                  timeout={i >= grid_limit ? (i - grid_limit) * 300 : 300}
                   exit={false}>
                   <StyledProject
                     key={i}
                     ref={el => (revealProjects.current[i] = el)}
                     style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                      transitionDelay: `${i >= grid_limit ? (i - grid_limit) * 100 : 0}ms`,
                     }}>
                     {projectInner(node)}
                   </StyledProject>
@@ -311,3 +311,7 @@ const Projects = () => {
 };
 
 export default Projects;
+
+Projects.propTypes = {
+  grid_limit: PropTypes.number,
+};

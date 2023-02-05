@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -109,6 +110,7 @@ const StyledProject = styled.li`
 
     a {
       position: static;
+      display: flex;
 
       &:before {
         content: '';
@@ -123,12 +125,17 @@ const StyledProject = styled.li`
 
       .folder {
         color: var(--green);
-        display: inline-block;
-        padding-right: 10px;
+        display: inline-flex;
+        margin-right: 10px;
+        min-width: 25px;
+        height: 25px;
+
         svg {
-          width: 25px;
-          height: 25px;
         }
+      }
+
+      span {
+        margin-top: auto;
       }
     }
   }
@@ -174,7 +181,7 @@ const StyledProject = styled.li`
   }
 `;
 
-const Projects = () => {
+const Projects = ({ grid_limit = 6 }) => {
   const data = useStaticQuery(graphql`
     query {
       projects: allMarkdownRemark(
@@ -217,9 +224,8 @@ const Projects = () => {
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
-  const GRID_LIMIT = 6;
   const projects = data.projects.edges.filter(({ node }) => node);
-  const firstSix = projects.slice(0, GRID_LIMIT);
+  const firstSix = projects.slice(0, grid_limit);
   const projectsToShow = showMore ? projects : firstSix;
 
   const projectInner = node => {
@@ -234,7 +240,7 @@ const Projects = () => {
               <div className="folder">
                 <Icon name="Mike" />
               </div>
-              {title}
+              <span>{title}</span>
             </a>
           </h3>
 
@@ -291,9 +297,8 @@ const Projects = () => {
       </h2>
 
       <p>
-        These are all the talks I have given over the past couple years. Check out these talks.{' '}
-        <br />
-        Mostly on location, sometimes remote.
+        These are all the talks I have given over the past couple years. Mostly on location,
+        sometimes remote.
       </p>
 
       <ul className="projects-grid">
@@ -311,13 +316,13 @@ const Projects = () => {
                 <CSSTransition
                   key={i}
                   classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                  timeout={i >= grid_limit ? (i - grid_limit) * 300 : 300}
                   exit={false}>
                   <StyledProject
                     key={i}
                     ref={el => (revealProjects.current[i] = el)}
                     style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                      transitionDelay: `${i >= grid_limit ? (i - grid_limit) * 100 : 0}ms`,
                     }}>
                     {projectInner(node)}
                   </StyledProject>
@@ -335,3 +340,7 @@ const Projects = () => {
 };
 
 export default Projects;
+
+Projects.propTypes = {
+  grid_limit: PropTypes.number,
+};
