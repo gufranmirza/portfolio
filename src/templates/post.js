@@ -52,11 +52,29 @@ const StyledPostContent = styled.div`
 
 const PostTemplate = ({ data, location }) => {
   const { frontmatter, html } = data.markdownRemark;
-  const { title, date, tags } = frontmatter;
+  const { title, description, date, tags, cover } = frontmatter;
 
   return (
     <Layout location={location}>
-      <Helmet title={title} />
+      <Helmet>
+        <title>{title} </title>
+        <meta name="description" content={description} />
+
+        {/* // Twitter SEO */}
+        <meta name="twitter:card" content={cover.publicURL} />
+        <meta name="twitter:image" content={cover.publicURL} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:creator" content="@_imGufran" />
+        <meta name="twitter:site" content="@_imGufran" />
+        <meta name="twitter:description" content={description} />
+
+        {/* OG SEO tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="gufranmirza.com" />
+        <meta name="og:title" content={title} />
+        <meta name="og:description" content={description} />
+        <meta property="og:image" content={cover.publicURL} />
+      </Helmet>
 
       <StyledPostContainer>
         <span className="breadcrumb">
@@ -108,6 +126,9 @@ export const pageQuery = graphql`
         date
         slug
         tags
+        cover {
+          publicURL
+        }
       }
     }
   }
