@@ -55,7 +55,6 @@ const Layout = ({ children, location, seo }) => {
   return (
     <>
       {seo ? <Head /> : <></>}
-      <Head />
 
       <div id="root">
         <ThemeProvider theme={theme}>
