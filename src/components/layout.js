@@ -16,7 +16,7 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, location, seo }) => {
   const isHome = false;
   const [isLoading, setIsLoading] = useState(isHome);
 
@@ -54,6 +54,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
+      {seo ? <Head /> : <></>}
       <Head />
 
       <div id="root">
@@ -87,6 +88,11 @@ const Layout = ({ children, location }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
+  seo: PropTypes.bool.isRequired,
+};
+
+Layout.defaultProps = {
+  seo: true,
 };
 
 export default Layout;

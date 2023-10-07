@@ -55,7 +55,7 @@ const PostTemplate = ({ data, location }) => {
   const { title, description, date, tags, cover } = frontmatter;
 
   return (
-    <Layout location={location}>
+    <Layout location={location} seo={false}>
       <Helmet>
         <title>{title} </title>
         <meta name="description" content={description} />
