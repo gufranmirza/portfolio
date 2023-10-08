@@ -14,6 +14,9 @@ const StyledPostHeader = styled.header`
   .tag {
     margin-right: 10px;
   }
+  h1 {
+    color: var(--dark-slate);
+  }
 `;
 const StyledPostContent = styled.div`
   margin-bottom: 100px;
@@ -24,12 +27,13 @@ const StyledPostContent = styled.div`
   h5,
   h6 {
     margin: 2em 0 1em;
+    color: var(--dark-slate);
   }
 
   p {
     margin: 1em 0;
     line-height: 1.5;
-    color: var(--light-slate);
+    color: var(--dark-slate);
   }
 
   a {
