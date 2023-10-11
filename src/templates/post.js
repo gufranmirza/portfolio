@@ -52,6 +52,10 @@ const StyledPostContent = styled.div`
     background-color: transparent;
     padding: 0;
   }
+
+  blockquote p {
+    font-size: var(--fz-xl);
+  }
 `;
 
 const PostTemplate = ({ data, location }) => {
