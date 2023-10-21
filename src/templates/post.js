@@ -48,6 +48,12 @@ const StyledPostContent = styled.div`
     padding: 0.2em 0.4em;
   }
 
+  ul {
+    li {
+      margin-bottom: 5px;
+    }
+  }
+
   pre code {
     background-color: transparent;
     padding: 0;

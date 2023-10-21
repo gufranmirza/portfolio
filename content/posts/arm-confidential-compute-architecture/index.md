@@ -1,6 +1,6 @@
 ---
 title: Confidential Compute Architecture(CCA) on Armv9.2+ Microprocessors
-description: CCA is hardware-based secure environment, to shield portions of code and data from access or modification, even from privileged software stack
+description: CCA is hardware-based secure environment, to shield portions of code and data from access or modification, even from privileged software stack.
 date: 2023-10-15
 draft: false
 cover: './arm-cca-arch.png'
