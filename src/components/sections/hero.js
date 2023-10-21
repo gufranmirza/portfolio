@@ -71,16 +71,6 @@ const Hero = () => {
         Distributed systems & Softwares. I have an entrepreneurial mindset and I am interested in
         building exceptional products & experiences.
       </p>
-
-      <p>
-        I’m back to school one more time and I am working towards my Masters In Computer Science
-        from{' '}
-        <a href="https://cs.gmu.edu" target="_blank" rel="noreferrer">
-          {' '}
-          George Mason University{' '}
-        </a>
-        .
-      </p>
     </>
   );
   const five = (
