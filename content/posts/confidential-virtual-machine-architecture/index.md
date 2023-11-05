@@ -5,7 +5,7 @@ description: In this post, we will look into confidential virtual machines (CVMs
 date: 2023-11-4
 draft: false
 cover: './cover.png'
-slug: /blogs/confidential-virtual-machine-architecture
+slug: /blogs/confidential-virtual-machine-architecture-cvm
 tags:
   - Arch
   - Security
