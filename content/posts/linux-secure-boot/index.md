@@ -1,6 +1,6 @@
 ---
 title: Protection against vulnerabilities at boot time with Linux Secure Boot Process
-description: How on-chip security features (TEEs) that can significantly boost your Zero Trust solution architecture.
+description: Secure Boot is a security feature found in the UEFI standard, designed to add a layer of protection to the pre-boot process
 date: '2023-11-15'
 draft: false
 cover: './cover.png'
