@@ -1,8 +1,7 @@
 ---
 title: Bits and pieces of confidential virtual machine architecture
 description: In this post, we will look into confidential virtual machines (CVMs) and its core building blocks.
-
-date: 2023-11-4
+date: 2023-11-04
 draft: false
 cover: './cover.png'
 slug: /blogs/confidential-virtual-machine-architecture-cvm-1
