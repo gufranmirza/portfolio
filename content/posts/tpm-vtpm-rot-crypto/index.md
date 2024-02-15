@@ -1,7 +1,7 @@
 ---
 title: Trusted Platform Module (TPM) as Root of Trust (rot) and cryptographic features
 description: High level overview of the trusted platform module its cryptographic features that can be used to perform the platform attestation.
-date: 2024-02-8
+date: 2024-02-08
 draft: false
 slug: /blogs/trusted-platform-module-and-attestation
 cover: './cover.jpg'
