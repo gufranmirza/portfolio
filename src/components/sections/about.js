@@ -22,17 +22,14 @@ const StyledAboutSection = styled.section`
 `;
 const StyledText = styled.div`
   ul.skills-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    grid-gap: 0 10px;
     padding: 0;
-    margin: 20px 0 0 0;
+    margin: 30px 0 0 0;
     overflow: hidden;
     list-style: none;
 
     li {
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
@@ -129,55 +126,26 @@ const About = () => {
   }, []);
 
   const skills = [
+    'AI Security Infrastructure',
     'Distributed Systems & Networking',
-    'Confidential/Trustless Computing',
-    'Software Architecture and Design',
-    'High Performance Computing',
+    'Confidential Computing',
+    'Runtime & Kernel Security',
   ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
       <h2 className="numbered-heading">About Me</h2>
-
       <div className="inner">
         <StyledText>
           <div>
             <p>
-              Hello! My name is Gufran and I enjoy building software that is scalable, robust, and
-              secure by design. My interest in software development started back in 2012 when I
-              tried to build a simple website.
+              I'm Gufran. I work on infrastructure security - building systems that protect
+              everything from the kernel layer to cloud platforms and AI workloads.
             </p>
 
             <p>
-              During my college days, I heavily got interested in building Community Platform for
-              Developers,{' '}
-              <a href="https://ednsquare.com/" target="_blank" rel="noreferrer">
-                {' '}
-                Ednsquare — Blogging & QnA Platform{' '}
-              </a>{' '}
-              It serves as a playground for developers to learn & share knowledge.
-            </p>
-
-            <p>
-              Fast-forward to today, and I’ve had the privilege of working on large-scale enterprise
-              software and solving challenging problems for customers. I also works with a few early
-              stage startups. I also have worked on building new products and services at{' '}
-              <a href="https://www.ibm.com/cloud/" target="_blank" rel="noreferrer">
-                IBM Cloud Platform
-              </a>
-            </p>
-
-            <p>
-              Over the course of time, I got the chance to work on various technology and
-              frameworks, but I am more interested in building exceptional softwares rather than
-              just being attached to specific framework or technology and I believe in{' '}
-              <a
-                href="https://en.wikipedia.org/wiki/Software_craftsmanship"
-                target="_blank"
-                rel="noreferrer">
-                Software Craftsmanship
-              </a>
-              . Here are a few areas of computing that I am interested in{' '}
+              I've worked on eBPF-based security, confidential computing, Kubernetes, attestation
+              protocols, and distributed systems at scale.
             </p>
           </div>
 
