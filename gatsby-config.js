@@ -1,6 +1,12 @@
 const config = require('./src/config');
 
 module.exports = {
+  // Gatsby 3 auto-enables DEV_SSR, which races the static-query results in
+  // public/page-data/sq/d and fails to build the dev SSR bundle after a clean.
+  // Production builds still server-render; this only affects `gatsby develop`.
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
     title: 'Gufran Mirza',
     description:

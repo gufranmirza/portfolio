@@ -3,27 +3,33 @@
  */
 
 import { useState, useEffect } from 'react';
-const QUERY = '(prefers-reduced-motion: no-preference)';
-const isRenderingOnServer = typeof window === 'undefined';
 
-const getInitialState = () =>
-  // For our initial server render, we won't know if the user
-  // prefers reduced motion, but it doesn't matter. This value
-  // will be overwritten on the client, before any animations
-  // occur.
-  isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
+const QUERY = '(prefers-reduced-motion: no-preference)';
+
 function usePrefersReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialState);
+  // Start with the same value the server rendered so hydration matches.
+  // The effect below reads the real preference on the client, before any
+  // animation runs. Consumers must list this in their effect deps.
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(true);
+
   useEffect(() => {
     const mediaQueryList = window.matchMedia(QUERY);
+
+    setPrefersReducedMotion(!mediaQueryList.matches);
+
     const listener = event => {
       setPrefersReducedMotion(!event.matches);
     };
+
+    // addListener is deprecated but still needed for Safari < 14
+    if (mediaQueryList.addEventListener) {
+      mediaQueryList.addEventListener('change', listener);
+      return () => mediaQueryList.removeEventListener('change', listener);
+    }
     mediaQueryList.addListener(listener);
-    return () => {
-      mediaQueryList.removeListener(listener);
-    };
+    return () => mediaQueryList.removeListener(listener);
   }, []);
+
   return prefersReducedMotion;
 }
 

@@ -9,3 +9,7 @@ package-lock.json
 .DS_Store
 
 .vscode/
+
+# Local writing scratch — working notes, drafts, research teardowns.
+# Deliberately not published: see drafts/ for employer-sensitive material.
+drafts/

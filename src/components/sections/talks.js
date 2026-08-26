@@ -222,7 +222,7 @@ const Projects = ({ grid_limit = 6 }) => {
     sr.reveal(revealTitle.current, srConfig());
     sr.reveal(revealArchiveLink.current, srConfig());
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
-  }, []);
+  }, [prefersReducedMotion]);
 
   const projects = data.projects.edges.filter(({ node }) => node);
   const firstSix = projects.slice(0, grid_limit);

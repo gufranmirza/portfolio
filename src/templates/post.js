@@ -18,51 +18,7 @@ const StyledPostHeader = styled.header`
     color: var(--dark-slate);
   }
 `;
-const StyledPostContent = styled.div`
-  margin-bottom: 100px;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 2em 0 1em;
-    color: var(--dark-slate);
-  }
-
-  p {
-    margin: 1em 0;
-    line-height: 1.5;
-    color: var(--dark-slate);
-  }
-
-  a {
-    ${({ theme }) => theme.mixins.inlineLink};
-  }
-
-  code {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
-    border-radius: var(--border-radius);
-    font-size: var(--fz-sm);
-    padding: 0.2em 0.4em;
-  }
-
-  ul {
-    li {
-      margin-bottom: 5px;
-    }
-  }
-
-  pre code {
-    background-color: transparent;
-    padding: 0;
-  }
-
-  blockquote p {
-    font-size: var(--fz-xl);
-  }
-`;
+// Post body styling lives in src/styles/BlogStyles.js (.post-body)
 
 const PostTemplate = ({ data, location }) => {
   const { frontmatter, html } = data.markdownRemark;
@@ -75,8 +31,8 @@ const PostTemplate = ({ data, location }) => {
         <meta name="description" content={description} />
 
         {/* // Twitter SEO */}
-        <meta name="twitter:card" content={cover.publicURL} />
-        <meta name="twitter:image" content={cover.publicURL} />
+        {cover && <meta name="twitter:card" content={cover.publicURL} />}
+        {cover && <meta name="twitter:image" content={cover.publicURL} />}
         <meta name="twitter:title" content={title} />
         <meta name="twitter:creator" content="@_imGufran" />
         <meta name="twitter:site" content="@_imGufran" />
@@ -87,7 +43,7 @@ const PostTemplate = ({ data, location }) => {
         <meta property="og:url" content="gufranmirza.com" />
         <meta name="og:title" content={title} />
         <meta name="og:description" content={description} />
-        <meta property="og:image" content={cover.publicURL} />
+        {cover && <meta property="og:image" content={cover.publicURL} />}
       </Helmet>
 
       <StyledPostContainer>
@@ -117,7 +73,7 @@ const PostTemplate = ({ data, location }) => {
           </p>
         </StyledPostHeader>
 
-        <StyledPostContent dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
       </StyledPostContainer>
     </Layout>
   );

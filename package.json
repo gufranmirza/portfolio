@@ -12,9 +12,12 @@
   ],
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",
+  "resolutions": {
+    "gatsby/postcss": "^8.4.31"
+  },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build",
+    "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

@@ -189,7 +189,7 @@ const PensievePage = () => {
     }
 
     sr.reveal(revealTitle.current, srConfig());
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <MainContainer>

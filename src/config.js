@@ -37,14 +37,6 @@ module.exports = {
       name: 'Talks',
       url: '/talks',
     },
-    {
-      name: 'Research',
-      url: '/research',
-    },
-    {
-      name: 'Products',
-      url: '/products',
-    },
   ],
 
   colors: {

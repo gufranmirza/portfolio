@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import variables from './variables';
 import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
+import BlogStyles from './BlogStyles';
 
 const GlobalStyle = createGlobalStyle`
   ${variables};
@@ -302,20 +303,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  blockquote {
-    border-left-color: var(--green);
-    border-left-style: solid;
-    border-left-width: 1px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 1.5rem;
-
-    p {
-      font-style: italic;
-      font-size: 24px;
-    }
-  }
-
   hr {
     background-color: var(--lightest-navy);
     height: 1px;
@@ -415,6 +402,8 @@ const GlobalStyle = createGlobalStyle`
   ${TransitionStyles};
 
   ${PrismStyles};
+
+  ${BlogStyles};
 `;
 
 export default GlobalStyle;
