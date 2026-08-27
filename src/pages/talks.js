@@ -284,7 +284,13 @@ const TalksPage = ({ data, location }) => {
   });
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      seo={{
+        title: 'Talks',
+        description:
+          'Conference sessions, university guest lectures and meetup talks, mostly on Go, service meshes and systems security.',
+      }}>
       <StyledSection>
         <div className="masthead">
           <div className="eyebrow" style={{ marginBottom: '12px' }}>

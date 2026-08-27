@@ -581,7 +581,12 @@ const IndexPage = ({ data, location }) => {
   const me = getImage(data.me?.childImageSharp);
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      seo={{
+        description:
+          'Systems and security engineer working on confidential computing, hardware roots of trust, and the low levels of the stack. Writing, talks and experiments by Gufran Mirza.',
+      }}>
       <StyledHero>
         <div className="row">
           <div className="col">

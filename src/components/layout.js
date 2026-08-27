@@ -64,7 +64,7 @@ const Layout = ({ children, location, seo = true }) => {
 
   return (
     <>
-      {seo ? <Head /> : <></>}
+      {seo === false ? null : <Head {...(typeof seo === 'object' && seo !== null ? seo : {})} />}
 
       <div id="root">
         <ThemeProvider theme={theme}>
@@ -90,7 +90,7 @@ const Layout = ({ children, location, seo = true }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
-  seo: PropTypes.bool,
+  seo: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };
 
 export default Layout;

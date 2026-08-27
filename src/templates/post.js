@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Layout } from '@components';
 import { topicFor, formatDate } from '@utils';
@@ -302,23 +301,15 @@ const PostTemplate = ({ data, location }) => {
   };
 
   return (
-    <Layout location={location} seo={false}>
-      <Helmet>
-        <title>{title} </title>
-        <meta name="description" content={description} />
-        {cover && <meta name="twitter:card" content={cover.publicURL} />}
-        {cover && <meta name="twitter:image" content={cover.publicURL} />}
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:creator" content="@_imGufran" />
-        <meta name="twitter:site" content="@_imGufran" />
-        <meta name="twitter:description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="gufranmirza.com" />
-        <meta name="og:title" content={title} />
-        <meta name="og:description" content={description} />
-        {cover && <meta property="og:image" content={cover.publicURL} />}
-      </Helmet>
-
+    <Layout
+      location={location}
+      seo={{
+        title,
+        description,
+        image: cover?.publicURL,
+        type: 'article',
+        article: { datePublished: date, keywords: tags },
+      }}>
       <StyledProgress>
         <span ref={barRef} />
       </StyledProgress>

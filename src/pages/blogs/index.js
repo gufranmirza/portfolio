@@ -469,7 +469,13 @@ const BlogsPage = ({ data, location }) => {
   const rest = pool.slice(3);
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      seo={{
+        title: 'Writing',
+        description:
+          'Notes from the low levels of the stack: confidential computing, hardware roots of trust, attestation, and the occasional Go deep-dive.',
+      }}>
       <StyledSection>
         <StyledMasthead>
           <div className="eyebrow" style={{ marginBottom: '14px' }}>

@@ -240,7 +240,13 @@ const ExperimentsPage = ({ data, location }) => {
   const items = (data.experiments.edges || []).map(({ node }) => node);
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      seo={{
+        title: 'Experiments',
+        description:
+          'Hardware and systems side-projects: portable operating systems, cloud desktops and compute sticks, most with a short video demo.',
+      }}>
       <StyledSection>
         <div className="masthead">
           <div className="eyebrow" style={{ marginBottom: '12px' }}>
