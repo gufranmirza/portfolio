@@ -215,12 +215,12 @@ module.exports = {
       },
     },
     {
-      // NOTE: 'UA-116249384-2' is a Universal Analytics property, which Google
-      // shut down in July 2023. Replace with a GA4 measurement ID ('G-XXXXXXX')
-      // for this to record anything.
+      // GA4 measurement ID for the 'gufranmirza.com - GA4' stream. This replaces
+      // 'UA-116249384-2', a Universal Analytics property Google shut down in
+      // July 2023, so the site had been reporting into a dead property since.
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: ['UA-116249384-2'],
+        trackingIds: ['G-1SPHXVSQG1'],
       },
     },
   ],
