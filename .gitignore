@@ -13,13 +13,3 @@ package-lock.json
 # Local writing scratch — working notes, drafts, research teardowns.
 # Deliberately not published: see drafts/ for employer-sensitive material.
 drafts/
-
-# Yarn 4. The release binary is committed on purpose: Node 26 no longer bundles
-# Corepack, so yarnPath is what guarantees CI and local use the same Yarn.
-.yarn/*
-!.yarn/releases
-!.yarn/patches
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
