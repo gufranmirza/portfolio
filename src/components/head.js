@@ -53,9 +53,13 @@ const Head = ({ title, description, image, type, article }) => {
     url: `${siteUrl}${pathname}`,
   };
 
-  // The social title should read as the page, not as the bare site name, so it
-  // gets the same "Page | Site" shape the document title has.
-  const socialTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
+  /* The social title is the page's own title, with no site suffix.
+     og:site_name already carries the site name and every platform renders it
+     as a separate line, so appending it here printed it twice on the card. It
+     also disagreed with the JSON-LD headline, which is the bare title. The
+     document <title> keeps the "Page | Site" suffix, where it belongs, for the
+     browser tab and search results. */
+  const socialTitle = seo.title;
 
   const author = {
     '@type': 'Person',
