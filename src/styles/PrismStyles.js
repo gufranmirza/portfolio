@@ -1,24 +1,28 @@
 import { css } from 'styled-components';
 
 /**
- * Light syntax theme.
+ * Syntax theme.
  *
- * The handoff puts code on a #f1f3f4 panel with #3c4043 body text, so the old
+ * The handoff puts code on a light panel with dark body text, so the old
  * Ayu-dark palette would have been unreadable. Hues are Google's: blue for
  * functions, purple for keywords, green for strings, red for tags.
+ *
+ * These read from tokens rather than literals so that code blocks follow the
+ * colour theme. Hardcoding them left syntax highlighting on a light panel
+ * while everything around it went dark.
  */
 const prismColors = {
-  bg: `#f1f3f4`,
-  lineHighlight: `#e8eaed`,
-  blue: `#1967d2`,
-  purple: `#8430ce`,
-  green: `#188038`,
-  yellow: `#b06000`,
-  orange: `#e8710a`,
-  red: `#c5221f`,
-  grey: `#3c4043`,
-  variable: `#3c4043`,
-  comment: `#80868b`,
+  bg: `var(--code-panel)`,
+  lineHighlight: `var(--code-line-highlight)`,
+  blue: `var(--code-blue)`,
+  purple: `var(--code-purple)`,
+  green: `var(--code-green)`,
+  yellow: `var(--code-yellow)`,
+  orange: `var(--code-orange)`,
+  red: `var(--code-red)`,
+  grey: `var(--code-grey)`,
+  variable: `var(--code-grey)`,
+  comment: `var(--code-comment)`,
 };
 
 // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs

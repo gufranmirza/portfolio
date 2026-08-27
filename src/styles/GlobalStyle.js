@@ -13,6 +13,14 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
+
+    /* The scrollbar below is a classic one and occupies 12px of layout width,
+       so a page tall enough to scroll is 12px narrower than one that is not.
+       Every centred container then sits 6px off from where it did on the
+       previous page, which reads as the whole page twitching sideways on each
+       client-side navigation. Reserving the gutter on all pages keeps the
+       content box one fixed width whether or not the page scrolls. */
+    scrollbar-gutter: stable;
   }
 
   *,
@@ -57,7 +65,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text-primary);
     font-size: var(--fz-base);
     line-height: 1.55;
-    overflow-x: hidden;
 
     &.hidden {
       overflow: hidden;

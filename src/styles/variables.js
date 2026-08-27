@@ -55,6 +55,20 @@ const variables = css`
     --scrim: rgba(60, 64, 67, 0.15);
     --mark-bg: #fdf1c2;
 
+    /* ---- syntax highlighting ----
+       Kept as tokens rather than literals so code blocks follow the theme;
+       the dark hues are Google's dark-palette equivalents of the light ones. */
+    --code-panel: #f1f3f4;
+    --code-line-highlight: #e8eaed;
+    --code-blue: #1967d2;
+    --code-purple: #8430ce;
+    --code-green: #188038;
+    --code-yellow: #b06000;
+    --code-orange: #e8710a;
+    --code-red: #c5221f;
+    --code-grey: #3c4043;
+    --code-comment: #80868b;
+
     /* Rules fade to transparent over the first/last 48px. */
     --faded-rule: linear-gradient(
       to right,
@@ -187,6 +201,17 @@ const variables = css`
     --code-bg: rgba(232, 234, 237, 0.08);
     --scrim: rgba(0, 0, 0, 0.45);
     --mark-bg: #4a3d14;
+
+    --code-panel: #282a2d;
+    --code-line-highlight: #35373b;
+    --code-blue: #8ab4f8;
+    --code-purple: #c58af9;
+    --code-green: #81c995;
+    --code-yellow: #fdd663;
+    --code-orange: #fcad70;
+    --code-red: #f28b82;
+    --code-grey: #dadce0;
+    --code-comment: #9aa0a6;
 
     --faded-rule: linear-gradient(
       to right,
