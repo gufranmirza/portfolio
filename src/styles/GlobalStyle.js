@@ -423,8 +423,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 3px 10px;
     transition: filter var(--transition);
 
-    &.tag-accent,
-    &.tag-outline {
+    &.tag-accent {
       background: var(--blue-tint);
       color: var(--blue-pressed);
     }

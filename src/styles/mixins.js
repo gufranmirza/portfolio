@@ -37,21 +37,6 @@ const mixins = {
     align-items: center;
   `,
 
-  link: css`
-    display: inline-block;
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    color: inherit;
-    position: relative;
-    transition: var(--transition);
-    &:hover,
-    &:active,
-    &:focus {
-      color: var(--blue);
-      outline: 0;
-    }
-  `,
-
   /**
    * The handoff underlines links for real (alpha underline that goes solid on
    * hover). The old mixin faked it with a `display:block` ::after, which turned

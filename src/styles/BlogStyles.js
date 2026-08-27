@@ -226,35 +226,21 @@ const BlogStyles = css`
       );
     }
 
-    /* Pull quote: Poppins, upright, not italic body text.
-       Left rule, not top/bottom rules: hr already uses --faded-rule for
-       section breaks, so a framed quote reads as a break in the document. */
+    /* Pull quote: Poppins, upright, not italic body text. */
     blockquote {
-      margin: 34px 0;
-      padding: 2px 0 2px 24px;
+      margin: 38px 0;
+      padding: 2px 0 2px 26px;
       border-left: 3px solid var(--blue);
 
       p {
         font-family: var(--font-display);
         font-size: var(--fz-blockquote);
-        line-height: 1.55;
+        line-height: 1.45;
         font-weight: 400;
         font-style: normal;
         letter-spacing: -0.01em;
         color: var(--text-primary);
-        margin: 0 0 10px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      strong {
-        font-weight: 600;
-      }
-
-      code {
-        font-style: normal;
+        margin: 0;
       }
 
       cite {
@@ -406,7 +392,7 @@ const BlogStyles = css`
       }
       blockquote p {
         font-size: 17px;
-        line-height: 1.5;
+        line-height: 1.42;
       }
       pre,
       .gatsby-highlight pre[class*='language-'] {
