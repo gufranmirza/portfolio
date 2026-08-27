@@ -1,14 +1,26 @@
 import { createGlobalStyle } from 'styled-components';
+import Fonts from './Fonts';
 import variables from './variables';
 import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
+import BlogStyles from './BlogStyles';
 
 const GlobalStyle = createGlobalStyle`
+  ${Fonts};
+
   ${variables};
 
   html {
     box-sizing: border-box;
     width: 100%;
+
+    /* The scrollbar below is a classic one and occupies 12px of layout width,
+       so a page tall enough to scroll is 12px narrower than one that is not.
+       Every centred container then sits 6px off from where it did on the
+       previous page, which reads as the whole page twitching sideways on each
+       client-side navigation. Reserving the gutter on all pages keeps the
+       content box one fixed width whether or not the page scrolls. */
+    scrollbar-gutter: stable;
   }
 
   *,
@@ -18,26 +30,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
-  }
-
-  :focus {
-    outline: 2px dashed var(--green);
-    outline-offset: 3px;
+    background: var(--selection-bg);
+    color: var(--text-primary);
   }
 
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--green);
+    scrollbar-color: var(--blue);
   }
   body::-webkit-scrollbar {
     width: 12px;
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color: var(--green);
+    background-color: var(--blue);
     border-radius: 10px;
   }
 
@@ -49,13 +56,10 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: var(--font-sans);
-    color: var(--dark-slate);
-    font-size: var(--fz-xl);
-    line-height: 1.3;
-
-    @media (max-width: 480px) {
-      font-size: var(--fz-lg);
-    }
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: var(--fz-base);
+    line-height: 1.55;
 
     &.hidden {
       overflow: hidden;
@@ -84,50 +88,10 @@ const GlobalStyle = createGlobalStyle`
     grid-template-columns: 100%;
   }
 
-  main {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1600px;
-    min-height: 100vh;
-    padding: 200px 150px;
-
-    @media (max-width: 1080px) {
-      padding: 200px 100px;
-    }
-    @media (max-width: 768px) {
-      padding: 150px 50px;
-    }
-    @media (max-width: 480px) {
-      padding: 125px 25px;
-    }
-
-    &.fillHeight {
-      padding: 0 150px;
-
-      @media (max-width: 1080px) {
-        padding: 0 100px;
-      }
-      @media (max-width: 768px) {
-        padding: 0 50px;
-      }
-      @media (max-width: 480px) {
-        padding: 0 25px;
-      }
-    }
-  }
-
   section {
-    margin: 0 auto;
-    padding: 100px 0;
-    max-width: 1000px;
-
-    @media (max-width: 768px) {
-      padding: 80px 0;
-    }
-
-    @media (max-width: 480px) {
-      padding: 60px 0;
-    }
+    margin: 0;
+    padding: 0;
+    max-width: none;
   }
 
   h1,
@@ -137,8 +101,10 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     margin: 0 0 10px 0;
-    font-weight: 600;
-    color: var(--lightest-slate);
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    color: var(--text-primary);
     line-height: 1.1;
   }
 
@@ -158,7 +124,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     margin: 10px 0 40px;
     width: 100%;
-    font-size: clamp(26px, 5vw, var(--fz-heading));
+    font-size: clamp(26px, 5vw, var(--fz-h1-section));
     white-space: nowrap;
 
     &:before {
@@ -167,7 +133,7 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '▹';
       margin-right: 10px;
-      color: var(--green);
+      color: var(--blue);
       font-weight: 400;
 
       @media (max-width: 480px) {
@@ -184,7 +150,7 @@ const GlobalStyle = createGlobalStyle`
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background-color: var(--border-hairline);
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -206,20 +172,33 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: middle;
   }
 
-  img[alt=""],
-  img:not([alt]) {
-    filter: blur(5px);
-  }
+  /* Development-only affordance flagging images that are missing alt text.
+     Deliberately does not match alt="", which is the correct markup for a
+     decorative image: gatsby-plugin-image emits alt="" on both its placeholder
+     and its main <img>, so matching it left every cover permanently blurred. */
+  ${process.env.NODE_ENV === 'development' ? 'img:not([alt]) { filter: blur(5px); }' : ''}
 
   svg {
+    vertical-align: middle;
+  }
+
+  /* The legacy Feather icon set carries no width/height and is sized by its
+     container. Scoped here so it cannot override Lucide or inline SVGs, which
+     set their own fill and dimensions. */
+  svg.feather {
     width: 100%;
     height: 100%;
-    fill: currentColor;
-    vertical-align: middle;
+    fill: none;
+  }
 
-    &.feather {
-      fill: none;
-    }
+
+  /* :focus-visible, not :focus. :focus matches on mouse clicks too, so a bare
+     :focus rule draws a ring around everything you click. :focus-visible is
+     the browser's own judgement of when a ring is useful, which is keyboard
+     and similar input but not pointer clicks. */
+  :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
   }
 
   a {
@@ -232,7 +211,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: var(--blue-pressed);
     }
 
     &.inline-link {
@@ -274,10 +253,10 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > code {
-      background-color: var(--light-navy);
-      color: var(--white);
+      background-color: var(--neutral-fill);
+      color: var(--surface);
       font-size: var(--fz-sm);
-      border-radius: var(--border-radius);
+      border-radius: var(--radius-chip);
       padding: 0.3em 0.5em;
     }
   }
@@ -287,7 +266,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       margin: 0;
       list-style: none;
-      font-size: var(--fz-lg);
+      font-size: var(--fz-card-title);
       li {
         position: relative;
         padding-left: 30px;
@@ -296,28 +275,14 @@ const GlobalStyle = createGlobalStyle`
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--green);
+          color: var(--blue);
         }
       }
     }
   }
 
-  blockquote {
-    border-left-color: var(--green);
-    border-left-style: solid;
-    border-left-width: 1px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 1.5rem;
-
-    p {
-      font-style: italic;
-      font-size: 24px;
-    }
-  }
-
   hr {
-    background-color: var(--lightest-navy);
+    background-color: var(--border-hairline);
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -327,7 +292,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    font-family: var(--font-mono);
+    font-family: var(--font-code);
     font-size: var(--fz-md);
   }
 
@@ -343,8 +308,8 @@ const GlobalStyle = createGlobalStyle`
 
     &:focus,
     &:active {
-      background-color: var(--green);
-      color: var(--navy);
+      background-color: var(--blue);
+      color: var(--surface);
       top: 0;
       left: 0;
       width: auto;
@@ -355,21 +320,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #logo {
-    color: var(--green);
+    color: var(--blue);
   }
 
   .overline {
-    color: var(--green);
-    font-family: var(--font-mono);
+    color: var(--blue);
+    font-family: var(--font-code);
     font-size: var(--fz-md);
     font-weight: 400;
   }
 
   .subtitle {
-    color: var(--green);
+    color: var(--blue);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
-    font-family: var(--font-mono);
+    font-family: var(--font-code);
     font-weight: 400;
     line-height: 1.5;
     @media (max-width: 1080px) {
@@ -389,7 +354,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    color: var(--green);
+    color: var(--blue);
 
     .arrow {
       display: block;
@@ -399,12 +364,11 @@ const GlobalStyle = createGlobalStyle`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
-      font-family: var(--font-mono);
+      font-family: var(--font-code);
       font-size: var(--fz-sm);
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.5;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.01em;
     }
   }
 
@@ -415,6 +379,118 @@ const GlobalStyle = createGlobalStyle`
   ${TransitionStyles};
 
   ${PrismStyles};
+
+  /* ---------------------------------------------------------------
+     Shared primitives (handoff)
+     --------------------------------------------------------------- */
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+
+    @media (max-width: 760px) {
+      padding: 0 var(--gutter-mobile);
+    }
+  }
+
+  /* Rule that fades out over its first and last 48px. */
+  .fade-b {
+    height: 1px;
+    background: var(--faded-rule);
+  }
+
+  .thumb {
+    border-radius: var(--radius-thumb);
+    object-fit: cover;
+    box-shadow: var(--ring-strong);
+  }
+
+  /* v2: natural case, .01em tracking. Uppercase was removed from the design. */
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--fz-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--blue);
+  }
+
+  .kicker {
+    font-family: var(--font-display);
+    font-size: var(--fz-kicker);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--text-muted);
+  }
+
+  .tag {
+    display: inline-block;
+    white-space: nowrap;
+    border: 0;
+    outline: 0;
+    border-radius: var(--radius-chip);
+    font-size: var(--fz-chip);
+    padding: 3px 10px;
+    transition: filter var(--transition);
+
+    &.tag-accent {
+      background: var(--blue-tint);
+      color: var(--blue-pressed);
+    }
+    &.tag-neutral {
+      background: var(--neutral-fill);
+      color: var(--text-body);
+    }
+  }
+
+  /* Depth is a hairline ring plus a hover fill. Never a drop shadow. */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    box-shadow: var(--ring);
+    transition: background var(--transition);
+
+    &:hover {
+      background: var(--surface-hover);
+    }
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-pill);
+    padding: 12px 24px;
+    font-family: var(--font-display);
+    font-size: var(--fz-nav);
+    font-weight: 400;
+    white-space: nowrap;
+    transition: background var(--transition), color var(--transition);
+
+    &.pill-primary {
+      background: var(--blue);
+      color: var(--on-accent);
+      /* Matches pill-secondary's hairline. The pills are auto-sized
+         inline-flex, so box-sizing does not absorb a border here: giving one
+         variant a border and not the other made the secondary 2px larger in
+         both axes and sat its label 1px further from the edge, and the flex
+         row then stretched the primary to match, so the two ended up with
+         visibly different padding. */
+      border: 1px solid transparent;
+      &:hover {
+        background: var(--blue-pressed);
+        color: var(--on-accent);
+      }
+    }
+    &.pill-secondary {
+      background: var(--surface);
+      color: var(--blue);
+      border: 1px solid var(--border-hairline);
+      &:hover {
+        background: var(--surface-hover);
+      }
+    }
+  }
+
+  ${BlogStyles};
 `;
 
 export default GlobalStyle;

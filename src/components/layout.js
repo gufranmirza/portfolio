@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { Head, Loader, Nav, Social, Email, Footer } from '@components';
+import { Head, Nav, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
@@ -16,10 +16,24 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = ({ children, location, seo }) => {
-  const isHome = false;
-  const [isLoading, setIsLoading] = useState(isHome);
+/**
+ * The page container (handoff §Spacing): 1120px centred, 40px side padding on
+ * desktop and 20px on mobile. The header and footer bars run full-bleed and
+ * re-apply this measure to their own contents.
+ */
+const StyledMain = styled.main`
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  flex: 1;
 
+  @media (max-width: 760px) {
+    padding: 0 var(--gutter-mobile);
+  }
+`;
+
+const Layout = ({ children, location, seo = true }) => {
   // Sets target="_blank" rel="noopener noreferrer" on external links
   const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
@@ -34,10 +48,6 @@ const Layout = ({ children, location, seo }) => {
   };
 
   useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-
     if (location.hash) {
       const id = location.hash.substring(1); // location.hash without the '#'
       setTimeout(() => {
@@ -50,11 +60,11 @@ const Layout = ({ children, location, seo }) => {
     }
 
     handleExternalLinks();
-  }, [isLoading]);
+  }, []);
 
   return (
     <>
-      {seo ? <Head /> : <></>}
+      {seo === false ? null : <Head {...(typeof seo === 'object' && seo !== null ? seo : {})} />}
 
       <div id="root">
         <ThemeProvider theme={theme}>
@@ -64,20 +74,13 @@ const Layout = ({ children, location, seo }) => {
             Skip to Content
           </a>
 
-          {isLoading && isHome ? (
-            <Loader finishLoading={() => setIsLoading(false)} />
-          ) : (
-            <StyledContent>
-              <Nav isHome={isHome} />
-              <Social isHome={isHome} />
-              <Email isHome={isHome} />
+          <StyledContent>
+            <Nav />
 
-              <div id="content">
-                {children}
-                <Footer />
-              </div>
-            </StyledContent>
-          )}
+            <StyledMain id="content">{children}</StyledMain>
+
+            <Footer />
+          </StyledContent>
         </ThemeProvider>
       </div>
     </>
@@ -87,11 +90,7 @@ const Layout = ({ children, location, seo }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
-  seo: PropTypes.bool.isRequired,
-};
-
-Layout.defaultProps = {
-  seo: true,
+  seo: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };
 
 export default Layout;

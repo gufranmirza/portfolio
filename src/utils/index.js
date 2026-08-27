@@ -22,3 +22,25 @@ export const KEY_CODES = {
   SPACE_IE11: 'Spacebar',
   ENTER: 'Enter',
 };
+
+export * from './topics';
+
+/**
+ * Date formatting for post meta.
+ *
+ * Parses the ISO parts by hand rather than via `new Date(iso)`: that parses a
+ * bare `YYYY-MM-DD` as UTC midnight, which renders as the previous day in any
+ * negative-offset timezone. The design prototype splits the string for the
+ * same reason.
+ */
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+export const formatDate = iso => {
+  const [y, mo, da] = String(iso).slice(0, 10).split('-').map(Number);
+  return `${MONTHS[mo - 1]} ${da}, ${y}`;
+};
+
+export const formatDateShort = iso => {
+  const [y, mo] = String(iso).slice(0, 10).split('-').map(Number);
+  return `${MONTHS[mo - 1]} ${y}`;
+};

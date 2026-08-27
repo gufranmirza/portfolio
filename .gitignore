@@ -9,3 +9,19 @@ package-lock.json
 .DS_Store
 
 .vscode/
+
+# Local writing scratch — working notes, drafts, research teardowns.
+# Deliberately not published: see drafts/ for employer-sensitive material.
+drafts/
+
+# Yarn 4. The release binary is committed deliberately: Node 26 dropped Corepack
+# and Corepack cannot be installed on this machine (its npm package collides
+# with the Homebrew pnpm shim), so yarnPath is the only thing pinning the Yarn
+# version for both local work and CI.
+.yarn/*
+!.yarn/releases
+!.yarn/patches
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

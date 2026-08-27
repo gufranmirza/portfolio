@@ -8,13 +8,19 @@ import { navDelay } from '@utils';
 import { Layout } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
-const StyledMainContainer = styled.main`
+const StyledMainContainer = styled.div`
+  padding: 52px 0 72px;
+
+  @media (max-width: 760px) {
+    padding: 36px 0 48px;
+  }
+
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
 `;
 const StyledTitle = styled.h1`
-  color: var(--green);
-  font-family: var(--font-mono);
+  color: var(--blue);
+  font-family: var(--font-code);
   font-size: clamp(100px, 25vw, 200px);
   line-height: 1;
 `;
@@ -38,7 +44,7 @@ const NotFoundPage = ({ location }) => {
 
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [prefersReducedMotion]);
 
   const content = (
     <StyledMainContainer className="fillHeight">

@@ -8,8 +8,16 @@ import sr from '@utils/sr';
 import { Layout } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
+const StyledPage = styled.div`
+  padding: 52px 0 72px;
+
+  @media (max-width: 760px) {
+    padding: 36px 0 48px;
+  }
+`;
+
 const StyledTableContainer = styled.div`
-  margin: 100px -20px;
+  margin: 40px -20px 0;
 
   @media (max-width: 768px) {
     margin: 50px -10px;
@@ -28,7 +36,7 @@ const StyledTableContainer = styled.div`
     tbody tr {
       &:hover,
       &:focus {
-        background-color: var(--light-navy);
+        background-color: var(--neutral-fill);
       }
     }
 
@@ -62,12 +70,12 @@ const StyledTableContainer = styled.div`
       cursor: default;
 
       td:first-child {
-        border-top-left-radius: var(--border-radius);
-        border-bottom-left-radius: var(--border-radius);
+        border-top-left-radius: var(--radius-chip);
+        border-bottom-left-radius: var(--radius-chip);
       }
       td:last-child {
-        border-top-right-radius: var(--border-radius);
-        border-bottom-right-radius: var(--border-radius);
+        border-top-right-radius: var(--radius-chip);
+        border-bottom-right-radius: var(--radius-chip);
       }
     }
 
@@ -84,20 +92,20 @@ const StyledTableContainer = styled.div`
       &.title {
         padding-top: 15px;
         padding-right: 20px;
-        color: var(--lightest-slate);
-        font-size: var(--fz-xl);
+        color: var(--text-primary);
+        font-size: var(--fz-md);
         font-weight: 600;
         line-height: 1.25;
       }
 
       &.company {
-        font-size: var(--fz-lg);
+        font-size: var(--fz-card-title);
         white-space: nowrap;
       }
 
       &.tech {
-        font-size: var(--fz-xxs);
-        font-family: var(--font-mono);
+        font-size: var(--fz-xs);
+        font-family: var(--font-code);
         line-height: 1.5;
         .separator {
           margin: 0 5px;
@@ -143,13 +151,13 @@ const ArchivePage = ({ location }) => {
     sr.reveal(revealTitle.current, srConfig());
     sr.reveal(revealTable.current, srConfig(200, 0));
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 10)));
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <Layout location={location}>
       <Helmet title="Archive" />
 
-      <main>
+      <StyledPage>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
           <p className="subtitle">A big list of things I’ve worked on</p>
@@ -230,7 +238,7 @@ const ArchivePage = ({ location }) => {
             </tbody>
           </table>
         </StyledTableContainer>
-      </main>
+      </StyledPage>
     </Layout>
   );
 };
@@ -245,7 +253,7 @@ export const pageQuery = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/projects/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

@@ -6,27 +6,33 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Layout } from '@components';
 
-const StyledTagsContainer = styled.main`
+const StyledTagsContainer = styled.div`
+  padding: 52px 0 72px;
+
+  @media (max-width: 760px) {
+    padding: 36px 0 48px;
+  }
+
   max-width: 1000px;
 
   h1 {
     margin-bottom: 50px;
-    color: var(--dark-slate);
+    color: var(--text-body);
   }
 
   ul {
-    color: var(--slate);
+    color: var(--text-muted);
 
     li {
-      font-size: var(--fz-xxl);
-      color: var(--slate);
+      font-size: var(--fz-h2);
+      color: var(--text-muted);
 
       a {
-        color: var(--slate);
+        color: var(--text-muted);
 
         .count {
-          color: var(--slate);
-          font-family: var(--font-mono);
+          color: var(--text-muted);
+          font-family: var(--font-code);
           font-size: var(--fz-md);
         }
       }
@@ -87,7 +93,7 @@ export default TagsPage;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(limit: 2000, filter: { frontmatter: { draft: { ne: true } } }) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }

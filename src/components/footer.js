@@ -1,125 +1,72 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from '@components/icons';
-import { socialMedia, navLinks } from '@config';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Link } from 'gatsby';
+import { socialMedia } from '@config';
 
+/**
+ * Footer (handoff §Shell): top hairline, copyright left, social text links
+ * right. Shares the 1120 container with the rest of the page.
+ */
 const StyledFooter = styled.footer`
-  ${({ theme }) => theme.mixins.flexCenter};
-  flex-direction: column;
-  height: auto;
-  min-height: 70px;
-  padding: 15px;
-  text-align: center;
+  border-top: 1px solid var(--border-soft);
+  margin-top: 40px;
 `;
 
-const StyledSocialLinks = styled.div`
-  display: none;
+const StyledFooterInner = styled.div`
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 28px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 
-  @media (max-width: 768px) {
-    display: block;
-    width: 100%;
-    max-width: 270px;
-    margin: 0 auto 10px;
-    color: var(--light-slate);
+  @media (max-width: 760px) {
+    padding: 24px var(--gutter-mobile);
   }
+`;
 
-  ul {
-    ${({ theme }) => theme.mixins.flexBetween};
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    a {
-      padding: 10px;
-      svg {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
+const StyledCopy = styled.div`
+  font-size: var(--fz-sm);
+  color: var(--text-faint);
 `;
 
 const StyledLinks = styled.div`
   display: flex;
-  align-items: center;
+  gap: 18px;
 
-  color: var(--slate);
-  font-family: var(--font-mono);
+  a {
+    font-size: var(--fz-sm);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-
-  ol {
-    ${({ theme }) => theme.mixins.flexBetween};
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    li {
-      margin: 0 3px;
-      position: relative;
-      counter-increment: item 1;
-      font-size: var(--fz-xs);
-
-      a {
-        padding: 10px 5px;
-
-        &:before {
-          content: '0' counter(item) '.';
-          margin-right: 1px;
-          color: var(--green);
-          font-size: var(--fz-xxs);
-          text-align: right;
-        }
-      }
+    &:hover,
+    &:focus {
+      color: var(--blue);
     }
-  }
-
-  .resume-button {
-    ${({ theme }) => theme.mixins.smallButton};
-    margin-left: 15px;
-    font-size: var(--fz-xs);
   }
 `;
 
+// The handoff footer carries GitHub / Twitter / LinkedIn only.
+const FOOTER_SOCIALS = ['GitHub', 'Twitter', 'Linkedin'];
+const LABELS = { Linkedin: 'LinkedIn' };
+
 const Footer = () => (
   <StyledFooter>
-    <StyledSocialLinks>
-      <ul>
-        {socialMedia &&
-          socialMedia.map(({ name, url }, i) => (
-            <li key={i}>
-              <a href={url} aria-label={name}>
-                <Icon name={name} />
-              </a>
-            </li>
+    <StyledFooterInner>
+      <StyledCopy>© {new Date().getFullYear()} Gufran Mirza</StyledCopy>
+      <StyledLinks>
+        {socialMedia
+          .filter(({ name }) => FOOTER_SOCIALS.includes(name))
+          .map(({ name, url }) => (
+            <a key={name} href={url} target="_blank" rel="noopener noreferrer">
+              {LABELS[name] || name}
+            </a>
           ))}
-      </ul>
-    </StyledSocialLinks>
-
-    <StyledLinks>
-      <ol>
-        <TransitionGroup component={null} timeout={2000}>
-          {navLinks &&
-            navLinks.map(({ url, name }, i) => (
-              <CSSTransition key={i} timeout={1000}>
-                <li key={i}>
-                  <Link to={url}>{name}</Link>
-                </li>
-              </CSSTransition>
-            ))}
-        </TransitionGroup>
-      </ol>
-    </StyledLinks>
+      </StyledLinks>
+    </StyledFooterInner>
   </StyledFooter>
 );
-
-Footer.propTypes = {
-  githubInfo: PropTypes.object,
-};
 
 export default Footer;

@@ -1,6 +1,14 @@
-const config = require('./src/config');
-
 module.exports = {
+  // Gatsby 5 defaults this to 'always'. The site's frontmatter slugs (and its
+  // live URLs) have no trailing slash, and post.js matches $path against
+  // frontmatter.slug, so 'always' breaks every post page.
+  trailingSlash: 'never',
+  // Gatsby auto-enables DEV_SSR, which races the static-query results in
+  // public/page-data/sq/d and fails to build the dev SSR bundle after a clean.
+  // Production builds still server-render; this only affects `gatsby develop`.
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
     title: 'Gufran Mirza',
     description:
@@ -10,6 +18,61 @@ module.exports = {
     twitterUsername: '@_imGufran',
   },
   plugins: [
+    {
+      // RSS at /rss.xml. Posts only, newest first, absolute URLs.
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.nodes.map(node => ({
+                title: node.frontmatter.title,
+                description: node.frontmatter.description || node.excerpt,
+                date: node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + node.frontmatter.slug,
+                guid: site.siteMetadata.siteUrl + node.frontmatter.slug,
+                custom_elements: [{ 'content:encoded': node.html }],
+              })),
+            query: `
+              {
+                allMarkdownRemark(
+                  filter: {
+                    fileAbsolutePath: { regex: "/content/posts//" }
+                    frontmatter: { draft: { ne: true } }
+                  }
+                  sort: { frontmatter: { date: DESC } }
+                ) {
+                  nodes {
+                    html
+                    excerpt
+                    frontmatter {
+                      title
+                      description
+                      date
+                      slug
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Gufran Mirza — Writing',
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
@@ -23,13 +86,16 @@ module.exports = {
         name: 'Gufran Mirza',
         short_name: 'gufranmirza',
         start_url: '/',
-        background_color: config.colors.darkNavy,
-        theme_color: config.colors.navy,
+        // Handoff v2 is a light design (--surface is #ffffff). These were still
+        // the previous dark theme's navy, so an installed app painted a
+        // near-black splash before the white page appeared, and mobile browser
+        // chrome was tinted dark against a white site.
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/logo.png',
       },
     },
-    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -77,7 +143,6 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: { color: config.colors.green },
             },
           },
           {
@@ -150,18 +215,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      // NOTE: 'UA-116249384-2' is a Universal Analytics property, which Google
+      // shut down in July 2023. Replace with a GA4 measurement ID ('G-XXXXXXX')
+      // for this to record anything.
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: 'UA-116249384-2',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        custom: {
-          families: ['Calibre, SF Mono'],
-          urls: ['/fonts/fonts.css'],
-        },
+        trackingIds: ['UA-116249384-2'],
       },
     },
   ],

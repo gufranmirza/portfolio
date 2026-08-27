@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 
 const button = css`
-  color: var(--green);
+  color: var(--blue);
   background-color: transparent;
-  border: 1px solid var(--green);
-  border-radius: var(--border-radius);
-  font-size: var(--fz-xs);
-  font-family: var(--font-mono);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-pill);
+  font-size: var(--fz-sm);
+  font-family: var(--font-display);
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -16,7 +16,7 @@ const button = css`
   &:hover,
   &:focus,
   &:active {
-    background-color: var(--green-tint);
+    background-color: var(--surface-hover);
     outline: none;
   }
   &:after {
@@ -37,64 +37,38 @@ const mixins = {
     align-items: center;
   `,
 
-  link: css`
-    display: inline-block;
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    color: inherit;
-    position: relative;
-    transition: var(--transition);
-    &:hover,
-    &:active,
-    &:focus {
-      color: var(--green);
-      outline: 0;
-    }
-  `,
-
+  /**
+   * The handoff underlines links for real (alpha underline that goes solid on
+   * hover). The old mixin faked it with a `display:block` ::after, which turned
+   * every inline link into a line-breaking box inside body copy.
+   */
   inlineLink: css`
-    display: inline-block;
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    position: relative;
-    transition: var(--transition);
-    color: var(--green);
+    display: inline;
+    color: var(--blue-pressed);
+    text-decoration: underline;
+    text-decoration-color: rgba(26, 115, 232, 0.35);
+    text-underline-offset: 2px;
+    transition: text-decoration-color var(--transition);
+
     &:hover,
     &:focus,
     &:active {
-      color: var(--green);
+      color: var(--blue-pressed);
       outline: 0;
-      &:after {
-        width: 100%;
-      }
-      & > * {
-        color: var(--green) !important;
-        transition: var(--transition);
-      }
-    }
-    &:after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 1px;
-      position: relative;
-      bottom: 0.37em;
-      background-color: var(--green);
-      transition: var(--transition);
-      opacity: 0.5;
+      text-decoration-color: var(--blue);
     }
   `,
 
   button,
 
   smallButton: css`
-    color: var(--green);
+    color: var(--blue);
     background-color: transparent;
-    border: 1px solid var(--green);
-    border-radius: var(--border-radius);
+    border: 1px solid var(--blue);
+    border-radius: var(--radius-chip);
     padding: 0.75rem 1rem;
     font-size: var(--fz-xs);
-    font-family: var(--font-mono);
+    font-family: var(--font-code);
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -102,7 +76,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
+      background-color: var(--surface-hover);
       outline: none;
     }
     &:after {
@@ -111,13 +85,13 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: var(--green);
+    color: var(--blue);
     background-color: transparent;
-    border: 1px solid var(--green);
-    border-radius: var(--border-radius);
+    border: 1px solid var(--blue);
+    border-radius: var(--radius-chip);
     padding: 1.25rem 1.75rem;
     font-size: var(--fz-sm);
-    font-family: var(--font-mono);
+    font-family: var(--font-code);
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -125,7 +99,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
+      background-color: var(--surface-hover);
       outline: none;
     }
     &:after {
@@ -134,12 +108,12 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    box-shadow: 0 10px 30px -15px var(--border-faint);
     transition: var(--transition);
 
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      box-shadow: 0 20px 30px -15px var(--border-faint);
     }
   `,
 
@@ -147,7 +121,7 @@ const mixins = {
     padding: 0;
     margin: 0;
     list-style: none;
-    font-size: var(--fz-lg);
+    font-size: var(--fz-card-title);
     li {
       position: relative;
       padding-left: 30px;
@@ -156,7 +130,7 @@ const mixins = {
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--blue);
       }
     }
   `,

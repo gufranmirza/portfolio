@@ -1,6 +1,4 @@
 module.exports = {
-  email: 'gufranmirza1@gmail.com',
-
   socialMedia: [
     {
       name: 'GitHub',
@@ -22,10 +20,6 @@ module.exports = {
 
   navLinks: [
     {
-      name: 'OSS',
-      url: '/open-source',
-    },
-    {
       name: 'Blogs',
       url: '/blogs',
     },
@@ -37,21 +31,7 @@ module.exports = {
       name: 'Talks',
       url: '/talks',
     },
-    {
-      name: 'Research',
-      url: '/research',
-    },
-    {
-      name: 'Products',
-      url: '/products',
-    },
   ],
-
-  colors: {
-    green: '#02c39a',
-    navy: '#0a192f',
-    darkNavy: '#020c1b',
-  },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
     origin: 'bottom',
