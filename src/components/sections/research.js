@@ -14,8 +14,8 @@ const StyledProjectsSection = styled.section`
   padding-top: 140px;
 
   h2 {
-    font-size: clamp(24px, 5vw, var(--fz-heading));
-    color: var(--slate-dark);
+    font-size: clamp(24px, 5vw, var(--fz-h1-section));
+    color: var(--text-muted);
   }
 
   p {
@@ -62,7 +62,7 @@ const StyledProject = styled.li`
     position: relative;
     height: 100%;
     padding: 2rem 1.75rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-chip);
     background: #02c39a0f;
     transition: var(--transition);
   }
@@ -75,7 +75,7 @@ const StyledProject = styled.li`
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--slate);
+      color: var(--text-muted);
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};
@@ -104,8 +104,8 @@ const StyledProject = styled.li`
 
   .project-title {
     margin: 0 0 15px;
-    color: var(--dark-slate);
-    font-size: var(--fz-xxl);
+    color: var(--text-body);
+    font-size: var(--fz-h2);
 
     a {
       position: static;
@@ -122,7 +122,7 @@ const StyledProject = styled.li`
       }
 
       .folder {
-        color: var(--green);
+        color: var(--blue);
         display: inline-block;
         padding-right: 10px;
         svg {
@@ -134,7 +134,7 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    color: var(--slate);
+    color: var(--text-muted);
     font-size: 17px;
 
     a {
@@ -142,7 +142,7 @@ const StyledProject = styled.li`
     }
 
     .folder {
-      color: var(--green);
+      color: var(--blue);
       display: inline-block;
       padding-right: 10px;
       svg {
@@ -162,10 +162,10 @@ const StyledProject = styled.li`
     list-style: none;
 
     li {
-      font-family: var(--font-mono);
-      font-size: var(--fz-xxs);
+      font-family: var(--font-code);
+      font-size: var(--fz-xs);
       line-height: 1.75;
-      color: var(--green);
+      color: var(--blue);
 
       &:not(:last-of-type) {
         margin-right: 15px;

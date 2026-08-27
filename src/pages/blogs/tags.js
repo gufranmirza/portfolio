@@ -11,22 +11,22 @@ const StyledTagsContainer = styled.main`
 
   h1 {
     margin-bottom: 50px;
-    color: var(--dark-slate);
+    color: var(--text-body);
   }
 
   ul {
-    color: var(--slate);
+    color: var(--text-muted);
 
     li {
-      font-size: var(--fz-xxl);
-      color: var(--slate);
+      font-size: var(--fz-h2);
+      color: var(--text-muted);
 
       a {
-        color: var(--slate);
+        color: var(--text-muted);
 
         .count {
-          color: var(--slate);
-          font-family: var(--font-mono);
+          color: var(--text-muted);
+          font-family: var(--font-code);
           font-size: var(--fz-md);
         }
       }

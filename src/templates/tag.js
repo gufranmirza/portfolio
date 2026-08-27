@@ -16,10 +16,10 @@ const StyledTagsContainer = styled.main`
   h1 {
     ${({ theme }) => theme.mixins.flexBetween};
     margin-bottom: 50px;
-    color: var(--dark-slate);
+    color: var(--text-body);
 
     a {
-      font-size: var(--fz-lg);
+      font-size: var(--fz-card-title);
       font-weight: 400;
     }
   }
@@ -31,11 +31,11 @@ const StyledTagsContainer = styled.main`
         font-size: inherit;
         margin: 0;
         a {
-          color: var(--slate);
+          color: var(--text-muted);
         }
       }
       .subtitle {
-        color: var(--slate);
+        color: var(--text-muted);
         font-size: var(--fz-sm);
 
         .tag {

@@ -16,6 +16,61 @@ module.exports = {
     twitterUsername: '@_imGufran',
   },
   plugins: [
+    {
+      // RSS at /rss.xml. Posts only, newest first, absolute URLs.
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.nodes.map(node => ({
+                title: node.frontmatter.title,
+                description: node.frontmatter.description || node.excerpt,
+                date: node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + node.frontmatter.slug,
+                guid: site.siteMetadata.siteUrl + node.frontmatter.slug,
+                custom_elements: [{ 'content:encoded': node.html }],
+              })),
+            query: `
+              {
+                allMarkdownRemark(
+                  filter: {
+                    fileAbsolutePath: { regex: "/content/posts//" }
+                    frontmatter: { draft: { ne: true } }
+                  }
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                ) {
+                  nodes {
+                    html
+                    excerpt
+                    frontmatter {
+                      title
+                      description
+                      date
+                      slug
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Gufran Mirza — Writing',
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
@@ -164,9 +219,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        custom: {
-          families: ['Calibre, SF Mono'],
-          urls: ['/fonts/fonts.css'],
+        // Handoff v2: two fonts only. Poppins for display/UI, Roboto for body
+        // and prose. Monospace was deliberately removed from the design.
+        google: {
+          families: ['Poppins:400,500,600', 'Roboto:400,500,700'],
         },
       },
     },

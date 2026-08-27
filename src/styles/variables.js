@@ -26,6 +26,7 @@ const variables = css`
     --surface-hover: #f8f9fa;
     --neutral-fill: #f1f3f4;
     --media-dark: #12131c;
+    --selection-bg: #d2e3fc;
 
     /* ---- borders ---- */
     --border-hairline: #dadce0;
@@ -50,32 +51,47 @@ const variables = css`
 
     /* Work-history monogram tiles. */
     --co-panw: #fa582d;
+    --co-protectai: #6b4ce6;
     --co-ibm: #0f62fe;
     --co-connectwise: #ec1c24;
-    --co-index: #12a594;
-    --co-tsystems: #1a73e8;
+    --co-trustcore: #1a73e8;
 
-    /* ---- type ---- */
+    /* ---- type (handoff v2) ----
+       Two fonts only. Poppins for headings, eyebrows, labels, nav, buttons.
+       Roboto for body and article prose. No monospace anywhere, by design:
+       code blocks and inline code are Roboto too.
+       Weights are restrained: display >=36px = 400, section/card titles = 500,
+       body = 400, inline strong = 600. Never 700. */
     --font-display: 'Poppins', 'Google Sans', 'Roboto', system-ui, sans-serif;
     --font-sans: 'Roboto', system-ui, -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --font-code: 'Roboto', system-ui, sans-serif;
 
-    --fz-eyebrow: 11px;
     --fz-kicker: 10px;
-    --fz-meta: 10.5px;
+    --fz-eyebrow: 11px;
+    --fz-chip: 11px;
+    --fz-count: 10.5px;
+    --fz-meta: 11.5px;
     --fz-xs: 12px;
     --fz-sm: 13px;
+    --fz-card-desc: 13.5px;
     --fz-base: 15px;
+    --fz-work-role: 15.5px;
     --fz-md: 16px;
-    --fz-lg: 16.5px;
-    --fz-intro: 18px;
-    --fz-lede: 19px;
+    --fz-card-title: 16.5px;
+    --fz-nav: 14px;
+    --fz-talk-title: 17px;
     --fz-article: 17px;
-    --fz-h2: 24px;
-    --fz-h2-lg: 28px;
-    --fz-h1-section: 40px;
-    --fz-h1-list: 44px;
-    --fz-h1-home: 52px;
+    --fz-hero-intro: 17px;
+    --fz-lede: 18px;
+    --fz-blockquote: 21px;
+    --fz-h2: 22px;
+    --fz-cta-h2: 26px;
+    --fz-featured: 27px;
+    --fz-h1-article: 36px;
+    --fz-h1-section: 38px;
+    --fz-h1-list: 40px;
+    --fz-h1-home: 46px;
+    --fz-h1-mobile: 30px;
 
     /* ---- layout ---- */
     --container: 1120px;
@@ -101,39 +117,6 @@ const variables = css`
 
     --header-height: 57px;
     --breakpoint: 760px;
-
-    /* ------------------------------------------------------------------
-       LEGACY TOKENS — the old dark navy theme.
-       Kept only so un-migrated components keep rendering during the
-       redesign. Delete this block once every component uses the tokens
-       above, then grep for "--navy|--green|--slate|--fz-" to confirm.
-       ------------------------------------------------------------------ */
-    --navy: #0a192f;
-    --light-navy: #112240;
-    --lightest-navy: #233554;
-    --navy-shadow: rgba(2, 12, 27, 0.7);
-    --dark-slate: #495670;
-    --slate: #687387;
-    --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
-    --white: #e6f1ff;
-    --white-clean: #fff;
-    --green: #02c39a;
-    --green-tint: rgba(100, 255, 218, 0.1);
-    --pink: #f57dff;
-    --blue-legacy: #57cbff;
-
-    --fz-xxs: 13px;
-    --fz-xl: 20px;
-    --fz-xxl: 22px;
-    --fz-heading: 32px;
-
-    --border-radius: 4px;
-    --nav-height: 100px;
-    --nav-scroll-height: 70px;
-    --tab-height: 42px;
-    --tab-width: 120px;
-    --hamburger-width: 30px;
   }
 `;
 

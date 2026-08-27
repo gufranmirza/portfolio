@@ -9,7 +9,7 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledProjectsSection = styled.div`
   h2 {
-    color: var(--slate-dark);
+    color: var(--text-muted);
   }
 
   padding-top: 40px;
@@ -126,14 +126,14 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
-    font-family: var(--font-mono);
+    color: var(--blue);
+    font-family: var(--font-code);
     font-size: var(--fz-xs);
     font-weight: 400;
   }
 
   .project-title {
-    color: var(--dark-slate);
+    color: var(--text-body);
     font-size: clamp(24px, 5vw, 28px);
 
     @media (min-width: 768px) {
@@ -163,10 +163,10 @@ const StyledProject = styled.li`
     position: relative;
     z-index: 2;
     padding: 25px;
-    border-radius: var(--border-radius);
-    background-color: var(--white-clean);
-    color: var(--slate);
-    font-size: var(--fz-lg);
+    border-radius: var(--radius-chip);
+    background-color: var(--surface);
+    color: var(--text-muted);
+    font-size: var(--fz-card-title);
     text-align: left;
 
     @media (max-width: 768px) {
@@ -184,7 +184,7 @@ const StyledProject = styled.li`
     }
 
     strong {
-      color: var(--white);
+      color: var(--surface);
       font-weight: normal;
     }
   }
@@ -200,8 +200,8 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-slate);
-      font-family: var(--font-mono);
+      color: var(--text-muted);
+      font-family: var(--font-code);
       font-size: var(--fz-xs);
       white-space: nowrap;
     }
@@ -211,7 +211,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--slate);
+        color: var(--text-muted);
       }
     }
   }
@@ -222,10 +222,10 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: var(--lightest-slate);
+    color: var(--text-primary);
 
     @media (max-width: 768px) {
-      color: var(--slate);
+      color: var(--text-muted);
     }
 
     a {
@@ -268,8 +268,8 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
-      border-radius: var(--border-radius);
+      background-color: var(--blue);
+      border-radius: var(--radius-chip);
       vertical-align: middle;
 
       &:hover,
@@ -295,13 +295,13 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        // background-color: var(--navy);
+        // background-color: var(--surface);
         mix-blend-mode: screen;
       }
     }
 
     .img {
-      border-radius: var(--border-radius);
+      border-radius: var(--radius-chip);
       mix-blend-mode: multiply;
       filter: grayscale(100%) contrast(1) brightness(90%);
 

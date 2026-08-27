@@ -1,16 +1,10 @@
 ---
-date: '2019-06-204'
+date: '2019-07-01'
 title: 'Software Engineer'
-company: 'ConnectWise LLC'
-location: 'Pune, IN'
-range: 'July 2019 - Feb 2021'
-url: 'https://www.connectwise.com/'
+company: 'ConnectWise'
+location: 'Pune, India'
+range: 'Jul 2019 — Mar 2021'
+url: 'https://www.connectwise.com/platform/rmm'
 ---
 
-- Designed, developed, and maintained Micro-services and APIs.
-- Implemented gRPC in Micro-services that resulted in ~7X performance improvement
-- Built a CDN system from scratch, that helped in distributing software packages and OS-Patches from Datacenter
-- Performed production code deployments and monitoring regularly
-- Developed plugins using Windows API / Linux Kernel API that helped in performing OS-level operations on host systems
-- Built, modified, and refactored code within core components of the application for performance tuning
-- [ConnectWise Command](https://www.connectwise.com/platform/unified-management/command) — is the product we built during my tenure @ ConnectWise
+Microservices and APIs — introduced gRPC for ~7× throughput and built a CDN for software and OS-patch delivery.

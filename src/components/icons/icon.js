@@ -15,6 +15,7 @@ import {
   IconPlayStore,
   IconStar,
   IconTwitter,
+  IconX,
   Mike,
   Map,
   Play,
@@ -50,6 +51,8 @@ const Icon = ({ name }) => {
     case 'Star':
       return <IconStar />;
     case 'Twitter':
+      return <IconX />;
+    case 'TwitterBird':
       return <IconTwitter />;
     case 'Mike':
       return <Mike />;

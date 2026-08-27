@@ -1,16 +1,24 @@
 import { css } from 'styled-components';
 
+/**
+ * Light syntax theme.
+ *
+ * The handoff puts code on a #f1f3f4 panel with #3c4043 body text, so the old
+ * Ayu-dark palette would have been unreadable. Hues are Google's: blue for
+ * functions, purple for keywords, green for strings, red for tags.
+ */
 const prismColors = {
-  bg: `#112340`,
-  lineHighlight: `#1d2d50`,
-  blue: `#5ccfe6`,
-  purple: `#c3a6ff`,
-  green: `#bae67e`,
-  yellow: `#ffd580`,
-  orange: `#ffae57`,
-  red: `#ef6b73`,
-  grey: `#a2aabc`,
-  comment: `#8695b799`,
+  bg: `#f1f3f4`,
+  lineHighlight: `#e8eaed`,
+  blue: `#1967d2`,
+  purple: `#8430ce`,
+  green: `#188038`,
+  yellow: `#b06000`,
+  orange: `#e8710a`,
+  red: `#c5221f`,
+  grey: `#3c4043`,
+  variable: `#3c4043`,
+  comment: `#80868b`,
 };
 
 // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs
@@ -23,12 +31,12 @@ const PrismStyles = css`
   .gatsby-highlight {
     background-color: ${prismColors.bg};
     color: ${prismColors.variable};
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-chip);
     margin: 2em 0;
     padding: 1.25em;
     overflow: auto;
     position: relative;
-    font-family: var(--font-mono);
+    font-family: var(--font-code);
     font-size: var(--fz-md);
   }
 
@@ -65,12 +73,12 @@ const PrismStyles = css`
   /* File names */
   .gatsby-code-title {
     padding: 1em 1.5em;
-    font-family: var(--font-mono);
+    font-family: var(--font-code);
     font-size: var(--fz-xs);
     background-color: ${prismColors.bg};
     color: ${prismColors.grey};
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--radius-chip);
+    border-top-right-radius: var(--radius-chip);
     border-bottom: 1px solid ${prismColors.lineHighlight};
 
     & + .gatsby-highlight {
@@ -84,7 +92,7 @@ const PrismStyles = css`
   .gatsby-highlight-code-line {
     display: block;
     background-color: ${prismColors.lineHighlight};
-    border-left: 2px solid var(--green);
+    border-left: 2px solid var(--blue);
     padding-left: calc(1em + 2px);
     padding-right: 1em;
     margin-right: -1.35em;
@@ -93,13 +101,12 @@ const PrismStyles = css`
 
   /* Language badges */
   .gatsby-highlight pre[class*='language-']::before {
-    background: var(--lightest-navy);
-    color: var(--white);
-    font-size: var(--fz-xxs);
-    font-family: var(--font-mono);
+    background: var(--neutral-fill);
+    color: var(--text-muted);
+    font-size: var(--fz-xs);
+    font-family: var(--font-code);
     line-height: 1.5;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     border-radius: 0 0 3px 3px;
     position: absolute;
     top: 0;

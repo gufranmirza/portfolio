@@ -22,10 +22,6 @@ module.exports = {
 
   navLinks: [
     {
-      name: 'OSS',
-      url: '/open-source',
-    },
-    {
       name: 'Blogs',
       url: '/blogs',
     },
