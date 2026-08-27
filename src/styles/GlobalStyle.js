@@ -167,10 +167,11 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: middle;
   }
 
-  img[alt=""],
-  img:not([alt]) {
-    filter: blur(5px);
-  }
+  /* Development-only affordance flagging images that are missing alt text.
+     Deliberately does not match alt="", which is the correct markup for a
+     decorative image: gatsby-plugin-image emits alt="" on both its placeholder
+     and its main <img>, so matching it left every cover permanently blurred. */
+  ${process.env.NODE_ENV === 'development' ? 'img:not([alt]) { filter: blur(5px); }' : ''}
 
   svg {
     vertical-align: middle;
