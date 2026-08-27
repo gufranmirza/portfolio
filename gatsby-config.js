@@ -16,8 +16,6 @@
 delete process.env.NETLIFY;
 delete process.env.NETLIFY_LOCAL;
 
-const config = require('./src/config');
-
 module.exports = {
   // Gatsby 5 defaults this to 'always'. The site's frontmatter slugs (and its
   // live URLs) have no trailing slash, and post.js matches $path against
@@ -106,8 +104,12 @@ module.exports = {
         name: 'Gufran Mirza',
         short_name: 'gufranmirza',
         start_url: '/',
-        background_color: config.colors.darkNavy,
-        theme_color: config.colors.navy,
+        // Handoff v2 is a light design (--surface is #ffffff). These were still
+        // the previous dark theme's navy, so an installed app painted a
+        // near-black splash before the white page appeared, and mobile browser
+        // chrome was tinted dark against a white site.
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/logo.png',
       },
@@ -237,16 +239,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ['UA-116249384-2'],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        // Handoff v2: two fonts only. Poppins for display/UI, Roboto for body
-        // and prose. Monospace was deliberately removed from the design.
-        google: {
-          families: ['Poppins:400,500,600', 'Roboto:400,500,700'],
-        },
       },
     },
   ],
