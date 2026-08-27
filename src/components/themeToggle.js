@@ -25,6 +25,13 @@ const StyledToggle = styled.button`
   height: 34px;
   flex: none;
   padding: 0;
+
+  /* The 18px glyph sits in a 34px hit target, so the button carries ~8px of
+     its own padding either side. Against StyledNav's 26px gap that reads as a
+     34px gap after "Talks" while the links sit 26px apart. Pulling the padding
+     back off the left edge lines the glyph up on the same rhythm as the text,
+     without shrinking the target. */
+  margin-left: -8px;
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
   background: transparent;
