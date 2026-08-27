@@ -252,7 +252,7 @@ const BlogStyles = css`
         color: var(--text-muted);
 
         &::before {
-          content: '\2014\00a0';
+          content: '— ';
         }
       }
     }

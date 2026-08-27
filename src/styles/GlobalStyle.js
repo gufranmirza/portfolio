@@ -1,10 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
+import Fonts from './Fonts';
 import variables from './variables';
 import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
 import BlogStyles from './BlogStyles';
 
 const GlobalStyle = createGlobalStyle`
+  ${Fonts};
+
   ${variables};
 
   html {

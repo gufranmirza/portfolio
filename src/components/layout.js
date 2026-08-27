@@ -33,7 +33,7 @@ const StyledMain = styled.main`
   }
 `;
 
-const Layout = ({ children, location, seo }) => {
+const Layout = ({ children, location, seo = true }) => {
   // Sets target="_blank" rel="noopener noreferrer" on external links
   const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
@@ -90,11 +90,7 @@ const Layout = ({ children, location, seo }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
-  seo: PropTypes.bool.isRequired,
-};
-
-Layout.defaultProps = {
-  seo: true,
+  seo: PropTypes.bool,
 };
 
 export default Layout;

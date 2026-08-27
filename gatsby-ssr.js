@@ -6,36 +6,38 @@
 import React from 'react';
 
 /**
- * Request the web fonts in the document head.
+ * Preload the two font files needed for the first screen.
  *
- * These were previously loaded by gatsby-plugin-web-font-loader, which pulls
- * WebFontLoader into the JS bundle and only calls it after hydration. Nothing
- * referenced the fonts until then, so the first paint used system-ui and every
- * piece of text re-rendered in Poppins/Roboto once the bundle had executed and
- * two further network round trips had completed. Poppins and system-ui have
- * quite different metrics, so that swap reflowed the page: the flash on load.
+ * The faces themselves are declared in src/styles/Fonts and ship inside the
+ * server-rendered <style>, so the browser learns about them without a request.
+ * It will not fetch a font, though, until it finds text that needs one, which
+ * is after layout. Preloading the two the first screen actually uses starts
+ * those bytes during HTML parsing instead.
  *
- * Declaring the stylesheet here starts the fetch while the HTML is still being
- * parsed, in parallel with the JS rather than after it, and display=swap keeps
- * text visible throughout.
+ * Only latin is preloaded, and only Poppins 500 and Roboto: 500 is by far the
+ * most used weight, and Roboto is variable so one file covers the body text at
+ * every weight. The remaining faces load on demand.
  */
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
-    <link key="font-preconnect" rel="preconnect" href="https://fonts.googleapis.com" />,
     <link
-      key="font-preconnect-static"
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
+      key="font-poppins-500"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/poppins-500-latin.woff2"
       crossOrigin="anonymous"
     />,
     <link
-      key="font-css"
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap"
+      key="font-roboto"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/roboto-variable-latin.woff2"
+      crossOrigin="anonymous"
     />,
   ]);
 };
-
 /**
  * Drop Gatsby's `as="fetch"` preload hints for page-data JSON.
  *
