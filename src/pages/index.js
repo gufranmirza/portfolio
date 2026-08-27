@@ -10,11 +10,27 @@ import { FlaskConical, Mic } from 'lucide-react';
 import { Icon } from '@components/icons';
 
 /** Work-history monogram tiles carry the company's brand colour (handoff §Color). */
+/* Company logos live in static/, so they are referenced by absolute path and
+   are not run through gatsby-plugin-image. They are small (16-37KB) and render
+   at 40px, so the optimisation pass is not worth the StaticImage boilerplate
+   that a dynamic src would require.
+
+   "fit" differs because the marks do: panw and stealth are full-bleed brand
+   tiles that should reach the tile edge, while cw, ibm-rh and pai carry
+   padding or a wordmark and get cropped by cover. */
+const COMPANY_LOGO = {
+  'Palo Alto Networks': { src: '/panw.png', fit: 'cover' },
+  'Protect AI': { src: '/pai.png', fit: 'contain' },
+  'TrustCore Systems': { src: '/stealth.png', fit: 'cover' },
+  'IBM / RedHat': { src: '/ibm-rh.png', fit: 'contain' },
+  ConnectWise: { src: '/cw.png', fit: 'contain' },
+};
+
 const COMPANY_COLOR = {
   'Palo Alto Networks': 'var(--co-panw)',
   'Protect AI': 'var(--co-protectai)',
   'TrustCore Systems': 'var(--co-trustcore)',
-  IBM: 'var(--co-ibm)',
+  'IBM / RedHat': 'var(--co-ibm)',
   ConnectWise: 'var(--co-connectwise)',
 };
 
@@ -24,7 +40,7 @@ const MONOGRAM = {
   'Palo Alto Networks': 'PA',
   'Protect AI': 'P',
   'TrustCore Systems': 'TC',
-  IBM: 'IBM',
+  'IBM / RedHat': 'IBM',
   ConnectWise: 'CW',
 };
 
@@ -406,6 +422,29 @@ const StyledJobs = styled.div`
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.02em;
+    overflow: hidden;
+  }
+
+  /* Logo tiles sit on white: several marks are dark or transparent and would
+     otherwise disappear against the dark surface. */
+  .mark.logo {
+    background: #fff;
+  }
+
+  .mark.logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .mark.logo--contain img {
+    object-fit: contain;
+    padding: 5px;
+  }
+
+  .mark.logo--cover img {
+    object-fit: cover;
   }
 
   .body {
@@ -679,11 +718,18 @@ const IndexPage = ({ data, location }) => {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer">
-                <span
-                  className="mark"
-                  style={{ background: COMPANY_COLOR[company] || 'var(--text-muted)' }}>
-                  {monogramFor(company)}
-                </span>
+                {COMPANY_LOGO[company] ? (
+                  <span className={`mark logo logo--${COMPANY_LOGO[company].fit}`}>
+                    {/* Decorative: the company name is already in the adjacent text. */}
+                    <img src={COMPANY_LOGO[company].src} alt="" loading="lazy" />
+                  </span>
+                ) : (
+                  <span
+                    className="mark"
+                    style={{ background: COMPANY_COLOR[company] || 'var(--text-muted)' }}>
+                    {monogramFor(company)}
+                  </span>
+                )}
                 <span className="body">
                   <span className="line1">
                     <span className="role">
