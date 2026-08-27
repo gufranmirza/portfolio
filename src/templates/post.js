@@ -402,8 +402,8 @@ PostTemplate.propTypes = {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $path } }) {
+  query($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       timeToRead
       headings(depth: h2) {
@@ -423,7 +423,7 @@ export const pageQuery = graphql`
     related: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/content/posts//" }
-        frontmatter: { draft: { ne: true }, slug: { ne: $path } }
+        frontmatter: { draft: { ne: true }, slug: { ne: $slug } }
       }
       sort: { frontmatter: { date: DESC } }
       limit: 3

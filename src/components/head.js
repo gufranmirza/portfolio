@@ -49,7 +49,7 @@ const Head = ({ title, description, image, type, article }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
-    // trailingSlash is 'never', so pathname carries no trailing slash to strip.
+    // trailingSlash is 'always', so pathname already matches the served URL.
     url: `${siteUrl}${pathname}`,
   };
 

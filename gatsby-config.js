@@ -1,8 +1,9 @@
 module.exports = {
-  // Gatsby 5 defaults this to 'always'. The site's frontmatter slugs (and its
-  // live URLs) have no trailing slash, and post.js matches $path against
-  // frontmatter.slug, so 'always' breaks every post page.
-  trailingSlash: 'never',
+  // Cloudflare Pages serves directory/index.html and 308-redirects /path to
+  // /path/, so the slash form is what actually gets served. 'never' left every
+  // canonical and og:url pointing at a URL that redirected. post.js no longer
+  // matches on the page path, so this is safe to align with the host.
+  trailingSlash: 'always',
   // Gatsby auto-enables DEV_SSR, which races the static-query results in
   // public/page-data/sq/d and fails to build the dev SSR bundle after a clean.
   // Production builds still server-render; this only affects `gatsby develop`.
@@ -41,8 +42,8 @@ module.exports = {
                 title: node.frontmatter.title,
                 description: node.frontmatter.description || node.excerpt,
                 date: node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + node.frontmatter.slug,
-                guid: site.siteMetadata.siteUrl + node.frontmatter.slug,
+                url: `${site.siteMetadata.siteUrl}${node.frontmatter.slug}/`,
+                guid: `${site.siteMetadata.siteUrl}${node.frontmatter.slug}/`,
                 custom_elements: [{ 'content:encoded': node.html }],
               })),
             query: `

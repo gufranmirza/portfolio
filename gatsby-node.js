@@ -48,7 +48,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: node.frontmatter.slug,
       component: postTemplate,
-      context: {},
+      // Passed explicitly rather than relying on $path: the page path picks up
+      // a trailing slash from trailingSlash, the slug never does, so matching
+      // one against the other couples the query to that setting.
+      context: { slug: node.frontmatter.slug },
     });
   });
 
