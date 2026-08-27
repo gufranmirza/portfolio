@@ -6,7 +6,13 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Layout } from '@components';
 
-const StyledTagsContainer = styled.main`
+const StyledTagsContainer = styled.div`
+  padding: 52px 0 72px;
+
+  @media (max-width: 760px) {
+    padding: 36px 0 48px;
+  }
+
   max-width: 1000px;
 
   a {

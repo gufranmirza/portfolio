@@ -8,7 +8,13 @@ import { navDelay } from '@utils';
 import { Layout } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
-const StyledMainContainer = styled.main`
+const StyledMainContainer = styled.div`
+  padding: 52px 0 72px;
+
+  @media (max-width: 760px) {
+    padding: 36px 0 48px;
+  }
+
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
 `;

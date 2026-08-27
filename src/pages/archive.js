@@ -8,8 +8,16 @@ import sr from '@utils/sr';
 import { Layout } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
+const StyledPage = styled.div`
+  padding: 52px 0 72px;
+
+  @media (max-width: 760px) {
+    padding: 36px 0 48px;
+  }
+`;
+
 const StyledTableContainer = styled.div`
-  margin: 100px -20px;
+  margin: 40px -20px 0;
 
   @media (max-width: 768px) {
     margin: 50px -10px;
@@ -149,7 +157,7 @@ const ArchivePage = ({ location }) => {
     <Layout location={location}>
       <Helmet title="Archive" />
 
-      <main>
+      <StyledPage>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
           <p className="subtitle">A big list of things I’ve worked on</p>
@@ -230,7 +238,7 @@ const ArchivePage = ({ location }) => {
             </tbody>
           </table>
         </StyledTableContainer>
-      </main>
+      </StyledPage>
     </Layout>
   );
 };

@@ -50,6 +50,8 @@ const StyledLogo = styled(Link)`
 const StyledNavLink = styled(Link)`
   font-family: var(--font-display);
   font-size: var(--fz-nav);
+  font-weight: 400;
+  letter-spacing: -0.005em;
   color: var(--text-muted);
   text-decoration: none;
   transition: color var(--transition);
