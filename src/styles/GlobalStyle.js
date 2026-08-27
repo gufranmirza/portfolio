@@ -34,11 +34,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text-primary);
   }
 
-  :focus {
-    outline: 2px dashed var(--blue);
-    outline-offset: 3px;
-  }
-
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
@@ -197,6 +192,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
+  /* :focus-visible, not :focus. :focus matches on mouse clicks too, so a bare
+     :focus rule draws a ring around everything you click. :focus-visible is
+     the browser's own judgement of when a ring is useful, which is keyboard
+     and similar input but not pointer clicks. */
   :focus-visible {
     outline: 2px solid var(--blue);
     outline-offset: 2px;
