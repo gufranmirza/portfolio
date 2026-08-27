@@ -761,7 +761,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: "/content/posts//" }
         frontmatter: { draft: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: 3
     ) {
       edges {
@@ -784,7 +784,7 @@ export const pageQuery = graphql`
     }
     jobs: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/jobs//" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

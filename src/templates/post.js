@@ -434,7 +434,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: "/content/posts//" }
         frontmatter: { draft: { ne: true }, slug: { ne: $path } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: 3
     ) {
       nodes {

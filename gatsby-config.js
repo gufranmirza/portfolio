@@ -1,7 +1,11 @@
 const config = require('./src/config');
 
 module.exports = {
-  // Gatsby 3 auto-enables DEV_SSR, which races the static-query results in
+  // Gatsby 5 defaults this to 'always'. The site's frontmatter slugs (and its
+  // live URLs) have no trailing slash, and post.js matches $path against
+  // frontmatter.slug, so 'always' breaks every post page.
+  trailingSlash: 'never',
+  // Gatsby auto-enables DEV_SSR, which races the static-query results in
   // public/page-data/sq/d and fails to build the dev SSR bundle after a clean.
   // Production builds still server-render; this only affects `gatsby develop`.
   flags: {
@@ -50,7 +54,7 @@ module.exports = {
                     fileAbsolutePath: { regex: "/content/posts//" }
                     frontmatter: { draft: { ne: true } }
                   }
-                  sort: { order: DESC, fields: [frontmatter___date] }
+                  sort: { frontmatter: { date: DESC } }
                 ) {
                   nodes {
                     html
@@ -138,7 +142,6 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: { color: config.colors.green },
             },
           },
           {
@@ -211,9 +214,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      // NOTE: 'UA-116249384-2' is a Universal Analytics property, which Google
+      // shut down in July 2023. Replace with a GA4 measurement ID ('G-XXXXXXX')
+      // for this to record anything.
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: 'UA-116249384-2',
+        trackingIds: ['UA-116249384-2'],
       },
     },
     {

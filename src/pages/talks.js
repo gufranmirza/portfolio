@@ -424,7 +424,7 @@ export const pageQuery = graphql`
   {
     talks: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/talks//" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
