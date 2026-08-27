@@ -18,7 +18,7 @@ export const TOPICS = {
 
 // slug (without the /blogs/ prefix) -> topic, per the design bundle
 const TOPIC_BY_SLUG = {
-  'semantic-gap-browser-security': TOPICS.SECURITY,
+  'no-rule-was-broken': TOPICS.SECURITY,
   'linux-secure-boot': TOPICS.SECURITY,
   'zero-trust-and-confidential-computing': TOPICS.SECURITY,
 
