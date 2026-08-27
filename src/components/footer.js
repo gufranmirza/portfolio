@@ -7,7 +7,7 @@ import { socialMedia } from '@config';
  * right. Shares the 1120 container with the rest of the page.
  */
 const StyledFooter = styled.footer`
-  border-top: 1px solid rgba(60, 64, 67, 0.1);
+  border-top: 1px solid var(--border-soft);
   margin-top: 40px;
 `;
 

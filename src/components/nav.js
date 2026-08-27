@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { navLinks } from '@config';
+import ThemeToggle from './themeToggle';
 
 /**
  * Sticky header (handoff §Shell).
@@ -14,10 +15,10 @@ const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(60, 64, 67, 0.1);
+  border-bottom: 1px solid var(--border-soft);
 `;
 
 const StyledNav = styled.div`
@@ -103,6 +104,8 @@ const Nav = () => (
           {name}
         </StyledNavLink>
       ))}
+
+      <ThemeToggle />
     </StyledNav>
   </StyledHeader>
 );

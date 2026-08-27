@@ -66,7 +66,7 @@ const StyledYear = styled.div`
   grid-template-columns: 80px 1fr;
   gap: 28px;
   padding: 32px 0;
-  border-top: 1px solid rgba(60, 64, 67, 0.12);
+  border-top: 1px solid var(--border-faint-2);
 
   @media (max-width: 760px) {
     grid-template-columns: 1fr;

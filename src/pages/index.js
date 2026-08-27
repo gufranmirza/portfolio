@@ -164,7 +164,7 @@ const StyledPhoto = styled.div`
     height: 344px;
     border-radius: var(--radius-panel);
     overflow: hidden;
-    box-shadow: inset 0 0 0 1px rgba(60, 64, 67, 0.16);
+    box-shadow: var(--ring-medium);
     background: var(--neutral-fill);
 
     img,
@@ -396,7 +396,7 @@ const StyledJobs = styled.div`
     padding: 16px 12px;
     margin: 0 -12px;
     border-radius: var(--radius-tile);
-    border-top: 1px solid rgba(60, 64, 67, 0.1);
+    border-top: 1px solid var(--border-soft);
     text-decoration: none;
     transition: background var(--transition);
 

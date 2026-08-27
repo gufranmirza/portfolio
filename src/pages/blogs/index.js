@@ -105,7 +105,7 @@ const StyledMasthead = styled.div`
   .divider {
     width: 1px;
     height: 32px;
-    background: rgba(60, 64, 67, 0.15);
+    background: var(--scrim);
   }
 
   .socials {

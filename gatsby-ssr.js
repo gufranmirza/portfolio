@@ -20,6 +20,22 @@ import React from 'react';
  */
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
+    /* Runs before the browser paints, so a dark-theme visitor never sees the
+       light palette first. Reads the stored choice, falling back to the OS
+       setting, and mirrors it onto <html> where the [data-theme='dark'] token
+       block picks it up. color-scheme keeps form controls and scrollbars in
+       step. Wrapped in try/catch because localStorage throws outright in some
+       privacy modes, and a failure here must not stop the page rendering. */
+    <script
+      key="theme-init"
+      dangerouslySetInnerHTML={{
+        __html:
+          '(function(){try{var t=localStorage.getItem(\'theme\');' +
+          'if(!t)t=window.matchMedia(\'(prefers-color-scheme: dark)\').matches?\'dark\':\'light\';' +
+          'if(t===\'dark\'){document.documentElement.setAttribute(\'data-theme\',\'dark\');' +
+          'document.documentElement.style.colorScheme=\'dark\';}}catch(e){}})();',
+      }}
+    />,
     <link
       key="font-poppins-500"
       rel="preload"

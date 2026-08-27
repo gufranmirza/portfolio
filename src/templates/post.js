@@ -20,7 +20,7 @@ const StyledProgress = styled.div`
   left: 0;
   right: 0;
   height: 3px;
-  background: rgba(60, 64, 67, 0.09);
+  background: var(--code-bg);
   z-index: 30;
 
   span {
@@ -87,7 +87,7 @@ const StyledAside = styled.aside`
     font-size: 12.5px;
     line-height: 1.35;
     padding-left: 12px;
-    border-left: 2px solid rgba(60, 64, 67, 0.18);
+    border-left: 2px solid var(--border-rule);
     color: var(--text-muted);
     text-decoration: none;
     transition: color var(--transition), border-color var(--transition);
@@ -174,7 +174,7 @@ const StyledArticle = styled.article`
 const StyledRelated = styled.div`
   margin-top: 56px;
   padding-top: 36px;
-  border-top: 1px solid rgba(60, 64, 67, 0.12);
+  border-top: 1px solid var(--border-faint-2);
 
   .label {
     font-family: var(--font-display);

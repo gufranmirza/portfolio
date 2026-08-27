@@ -1,6 +1,7 @@
 export { default as Head } from './head';
 export { default as Layout } from './layout';
 export { default as Nav } from './nav';
+export { default as ThemeToggle } from './themeToggle';
 export { default as Footer } from './footer';
 export { default as Featured } from './sections/featured';
 export { default as Research } from './sections/research';

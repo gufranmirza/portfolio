@@ -461,7 +461,7 @@ const GlobalStyle = createGlobalStyle`
 
     &.pill-primary {
       background: var(--blue);
-      color: #fff;
+      color: var(--on-accent);
       /* Matches pill-secondary's hairline. The pills are auto-sized
          inline-flex, so box-sizing does not absorb a border here: giving one
          variant a border and not the other made the secondary 2px larger in
@@ -471,7 +471,7 @@ const GlobalStyle = createGlobalStyle`
       border: 1px solid transparent;
       &:hover {
         background: var(--blue-pressed);
-        color: #fff;
+        color: var(--on-accent);
       }
     }
     &.pill-secondary {

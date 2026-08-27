@@ -107,7 +107,7 @@ const BlogStyles = css`
     }
 
     mark {
-      background: #fdf1c2;
+      background: var(--mark-bg);
       color: var(--text-primary);
       padding: 0.05em 0.28em;
       border-radius: 3px;
@@ -198,7 +198,7 @@ const BlogStyles = css`
     img {
       max-width: 100%;
       border-radius: var(--radius-img);
-      box-shadow: inset 0 0 0 1px rgba(60, 64, 67, 0.13);
+      box-shadow: var(--ring-table);
       margin: 8px 0;
     }
 
@@ -228,19 +228,23 @@ const BlogStyles = css`
 
     /* Pull quote: Poppins, upright, not italic body text. */
     blockquote {
-      margin: 38px 0;
-      padding: 2px 0 2px 26px;
+      margin: 36px 0;
+      padding: 8px 0 8px 26px;
       border-left: 3px solid var(--blue);
 
       p {
         font-family: var(--font-display);
         font-size: var(--fz-blockquote);
-        line-height: 1.45;
+        line-height: 1.6;
         font-weight: 400;
         font-style: normal;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.005em;
         color: var(--text-primary);
         margin: 0;
+
+        + p {
+          margin-top: 14px;
+        }
       }
 
       cite {
@@ -261,7 +265,7 @@ const BlogStyles = css`
     > blockquote:first-child {
       margin: 0 0 28px;
       padding: 14px 18px;
-      border-left: 3px solid rgba(60, 64, 67, 0.2);
+      border-left: 3px solid var(--quote-rule);
       border-radius: 8px;
       background: var(--surface-hover);
 
@@ -302,7 +306,7 @@ const BlogStyles = css`
 
     td {
       padding: 10px 14px;
-      border-bottom: 1px solid #eceef2;
+      border-bottom: 1px solid var(--table-rule);
       color: var(--text-muted);
     }
 
@@ -318,8 +322,8 @@ const BlogStyles = css`
       padding: 10px 16px;
       background: var(--neutral-fill);
       border-radius: var(--radius-tile) var(--radius-tile) 0 0;
-      box-shadow: inset 0 0 0 1px rgba(60, 64, 67, 0.1);
-      border-bottom: 1px solid rgba(60, 64, 67, 0.09);
+      box-shadow: var(--ring-soft);
+      border-bottom: 1px solid var(--border-soft);
       font-family: var(--font-code);
       font-size: var(--fz-sm);
       color: var(--text-muted);
@@ -342,7 +346,7 @@ const BlogStyles = css`
     .gatsby-highlight {
       background: var(--neutral-fill);
       border-radius: var(--radius-tile);
-      box-shadow: inset 0 0 0 1px rgba(60, 64, 67, 0.1);
+      box-shadow: var(--ring-soft);
       margin: 0 0 26px;
       overflow: hidden;
     }
@@ -391,8 +395,8 @@ const BlogStyles = css`
         font-size: 18px;
       }
       blockquote p {
-        font-size: 17px;
-        line-height: 1.42;
+        font-size: 16px;
+        line-height: 1.55;
       }
       pre,
       .gatsby-highlight pre[class*='language-'] {

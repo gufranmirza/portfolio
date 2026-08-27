@@ -1,6 +1,6 @@
 ---
 title: 'Browsers Need a Situation Layer for Security'
-description: 'Every control around the browser sees where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. A human, or an AI agent? None of them holds the situation: what the page is, who is acting, and why. That gap is where the attacks that matter now live.'
+description: 'Every control around the browser sees where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. A human, or an AI agent?'
 date: 2026-08-05
 draft: false
 cover: './cover.png'
@@ -18,17 +18,11 @@ tags:
 
 > Disclaimer: The views expressed here are my own and do not represent those of my current or former employers.
 
-_Why every control sees the request and misses the situation_
+After enough time with policy engines, DLP rules, and the incident write-ups that follow them, I keep landing on the same conclusion: The unit of risk is no longer the file and it's no longer the request. It's **the situation**.
 
-> Every control around the browser sees where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. A human, or an AI agent? None of them holds the situation: what the page is, who is acting, and why. That gap is where the attacks that matter now live.
+None of them holds the situation: what the page is, who is acting, and why. That gap is where the attacks that matter now live.
 
-After enough time with policy engines, DLP rules, and the incident write-ups that follow them, I keep landing on the same conclusion:
-
-The unit of risk is no longer the file.
-
-And it's no longer the request.
-
-It's **the situation**.
+> Every control around the browser sees where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. A human, or an AI agent?
 
 ---
 
