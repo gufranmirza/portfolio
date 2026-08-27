@@ -1,3 +1,21 @@
+/* This site deploys to Cloudflare Pages, whose v1 build image is derived from
+   Netlify's and leaves NETLIFY set in the environment. Gatsby's zero-configuration
+   deployment keys off exactly that:
+
+     test: () => !!process.env.NETLIFY || !!process.env.NETLIFY_LOCAL   (gatsby/adapters.js)
+
+   so it installs gatsby-adapter-netlify, which then copies build output into
+   Netlify's cache directory /opt/build/cache. That path does not exist on
+   Cloudflare, so the build completes every page and *then* fails with EACCES.
+
+   Clearing the false signal makes adapter detection find nothing and skip, which
+   is correct: a static Cloudflare Pages deploy needs no adapter. gatsby-config is
+   evaluated before adapter detection, so this lands in time.
+
+   Delete this if the site ever genuinely moves to Netlify. */
+delete process.env.NETLIFY;
+delete process.env.NETLIFY_LOCAL;
+
 const config = require('./src/config');
 
 module.exports = {
