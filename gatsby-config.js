@@ -214,13 +214,24 @@ module.exports = {
         ],
       },
     },
+    /* Retires the service worker gatsby-plugin-offline used to register.
+       Dropping that plugin stopped new visitors getting a worker, but did
+       nothing about the ones already registered in returning visitors'
+       browsers. Those kept intercepting requests and serving precached assets
+       from the old build, which no longer match the current one, so the page
+       failed with an unfetchable StaticQuery result.
+
+       This publishes a sw.js at the same path that unregisters itself, clears
+       the caches and reloads open clients. It has to stay until no visitor is
+       plausibly still holding the old worker. */
+    `gatsby-plugin-remove-serviceworker`,
     {
-      // NOTE: 'UA-116249384-2' is a Universal Analytics property, which Google
-      // shut down in July 2023. Replace with a GA4 measurement ID ('G-XXXXXXX')
-      // for this to record anything.
+      // GA4 measurement ID for the 'gufranmirza.com - GA4' stream. This replaces
+      // 'UA-116249384-2', a Universal Analytics property Google shut down in
+      // July 2023, so the site had been reporting into a dead property since.
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: ['UA-116249384-2'],
+        trackingIds: ['G-1SPHXVSQG1'],
       },
     },
   ],
