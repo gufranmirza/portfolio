@@ -1,6 +1,6 @@
 ---
-title: "Security Can't Read the Room"
-description: 'Every control around the browser reasons about where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. None of them holds the situation: what this page is, what it is asking for, who is acting, and why. That is where the attacks that matter now live.'
+title: 'Browsers Need a Situation Layer for Security'
+description: 'Every control around the browser sees where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. A human, or an AI agent? None of them holds the situation: what the page is, who is acting, and why. That gap is where the attacks that matter now live.'
 date: 2026-08-05
 draft: false
 cover: './cover.png'
@@ -18,11 +18,11 @@ tags:
 
 > Disclaimer: The views expressed here are my own and do not represent those of my current or former employers.
 
-_Why the attacks that matter now wear the shape of ordinary work_
+_Why every control sees the request and misses the situation_
 
-> Every control around the browser reasons about where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. None of them holds the situation: what this page is, what it is asking for, who is acting, and why. That is where the attacks that matter now live.
+> Every control around the browser sees where you went and what bytes moved. Identity tells you whose credentials were used, never who was driving. A human, or an AI agent? None of them holds the situation: what the page is, who is acting, and why. That gap is where the attacks that matter now live.
 
-After enough time with policy engines, DLP rules, consoles full of alerts, and the incident write-ups that follow them, I keep landing on the same conclusion:
+After enough time with policy engines, DLP rules, and the incident write-ups that follow them, I keep landing on the same conclusion:
 
 The unit of risk is no longer the file.
 
@@ -228,4 +228,4 @@ But right now the space is still open enough that the categories blur together. 
 
 That's the opening.
 
-The room is right there, in the browser, fully visible. Security needs to start reading it.
+The situation is right there, in the browser, fully visible. Security needs to start reading it.

@@ -83,7 +83,7 @@ const variables = css`
     --fz-article: 17px;
     --fz-hero-intro: 17px;
     --fz-lede: 18px;
-    --fz-blockquote: 21px;
+    --fz-blockquote: 18px;
     --fz-h2: 22px;
     --fz-cta-h2: 26px;
     --fz-featured: 27px;
