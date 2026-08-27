@@ -119,8 +119,13 @@ const Head = ({ title, description, image, type, article }) => {
     };
   }
 
+  /* Deliberately no titleTemplate. The document title is the page's own title
+     and nothing else: a "%s | Site" suffix repeated the site name in the
+     browser tab and in search results, where the domain and og:site_name
+     already say it. A page that passes no title falls back to the site name,
+     which is what the home page wants. */
   return (
-    <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defaultTitle}`}>
+    <Helmet title={title} defaultTitle={seo.title}>
       <html lang="en" />
 
       <link rel="canonical" href={seo.url} />
