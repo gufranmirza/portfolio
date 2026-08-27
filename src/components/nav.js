@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { navLinks } from '@config';
 
@@ -107,9 +106,5 @@ const Nav = () => (
     </StyledNav>
   </StyledHeader>
 );
-
-Nav.propTypes = {
-  isHome: PropTypes.bool,
-};
 
 export default Nav;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { Head, Loader, Nav, Footer } from '@components';
+import { Head, Nav, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
@@ -34,9 +34,6 @@ const StyledMain = styled.main`
 `;
 
 const Layout = ({ children, location, seo }) => {
-  const isHome = false;
-  const [isLoading, setIsLoading] = useState(isHome);
-
   // Sets target="_blank" rel="noopener noreferrer" on external links
   const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
@@ -51,10 +48,6 @@ const Layout = ({ children, location, seo }) => {
   };
 
   useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-
     if (location.hash) {
       const id = location.hash.substring(1); // location.hash without the '#'
       setTimeout(() => {
@@ -67,7 +60,7 @@ const Layout = ({ children, location, seo }) => {
     }
 
     handleExternalLinks();
-  }, [isLoading]);
+  }, []);
 
   return (
     <>
@@ -81,17 +74,13 @@ const Layout = ({ children, location, seo }) => {
             Skip to Content
           </a>
 
-          {isLoading && isHome ? (
-            <Loader finishLoading={() => setIsLoading(false)} />
-          ) : (
-            <StyledContent>
-              <Nav isHome={isHome} />
+          <StyledContent>
+            <Nav />
 
-              <StyledMain id="content">{children}</StyledMain>
+            <StyledMain id="content">{children}</StyledMain>
 
-              <Footer />
-            </StyledContent>
-          )}
+            <Footer />
+          </StyledContent>
         </ThemeProvider>
       </div>
     </>
