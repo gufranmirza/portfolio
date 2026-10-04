@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="930" viewBox="0 0 900 930" role="img" aria-labelledby="title desc">
+  <title id="title">Access is broader than the assignment</title>
+  <desc id="desc">An account permits reviewing code and changing settings. A review assignment permits reading code and preparing feedback. Changing approval requirements falls outside that assignment and requires separate authorization.</desc>
+  <rect width="900" height="930" fill="#f7f4ee"/>
+  <g fill="#343630">
+    <text x="54" y="63" font-family="monospace" font-size="18" letter-spacing="2" fill="#747168">01 / THE TASK BOUNDARY</text>
+    <text x="54" y="125" font-family="Georgia, serif" font-size="40">Access is broader</text>
+    <text x="54" y="176" font-family="Georgia, serif" font-size="40">than the assignment.</text>
+    <rect x="54" y="226" width="792" height="121" rx="9" fill="#ede7dc"/>
+    <text x="82" y="268" font-family="Arial, sans-serif" font-size="21" fill="#747168">What the account permits</text>
+    <text x="82" y="308" font-family="Arial, sans-serif" font-size="27">Review code · Change repository settings</text>
+    <path d="M450 347V397" fill="none" stroke="#79766f" stroke-width="2"/>
+    <rect x="54" y="397" width="792" height="181" rx="9" fill="none" stroke="#c9c5bc" stroke-width="2"/>
+    <text x="82" y="439" font-family="Arial, sans-serif" font-size="21" fill="#747168">What this assignment authorizes</text>
+    <text x="82" y="481" font-family="Georgia, serif" font-size="31">Review this pull request</text>
+    <text x="82" y="535" font-family="Arial, sans-serif" font-size="23">Read the changes. Prepare feedback.</text>
+    <path d="M450 578V624" fill="none" stroke="#79766f" stroke-width="2"/>
+    <rect x="54" y="624" width="792" height="124" rx="9" fill="#eee6e8"/>
+    <text x="82" y="667" font-family="Arial, sans-serif" font-size="25">Changing approval requirements?</text>
+    <text x="82" y="713" font-family="Arial, sans-serif" font-size="23" fill="#765965">Outside the assignment. Ask for separate approval.</text>
+    <line x1="54" y1="795" x2="846" y2="795" stroke="#c9c5bc"/>
+    <text x="54" y="840" font-family="Georgia, serif" font-size="28">The boundary follows the task, not just the account.</text>
+    <text x="54" y="885" font-family="Arial, sans-serif" font-size="17" fill="#747168">Illustrative policy, not a claim of implemented protection.</text>
+  </g>
+</svg>
