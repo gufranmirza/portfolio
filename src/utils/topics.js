@@ -11,6 +11,7 @@
  * after this handoff.
  */
 export const TOPICS = {
+  AI: 'AI & Browsers',
   CONFIDENTIAL: 'Confidential Computing',
   SECURITY: 'Security',
   GO: 'Go & APIs',
@@ -18,6 +19,7 @@ export const TOPICS = {
 
 // slug (without the /blogs/ prefix) -> topic, per the design bundle
 const TOPIC_BY_SLUG = {
+  'browser-llm-bench': TOPICS.AI,
   'no-rule-was-broken': TOPICS.SECURITY,
   'linux-secure-boot': TOPICS.SECURITY,
   'zero-trust-and-confidential-computing': TOPICS.SECURITY,
@@ -79,4 +81,4 @@ export const topicFor = ({ slug, tags = [] }) => {
 };
 
 /** Filter chips, in the order the handoff shows them. */
-export const TOPIC_FILTERS = ['All', TOPICS.CONFIDENTIAL, TOPICS.SECURITY, TOPICS.GO];
+export const TOPIC_FILTERS = ['All', TOPICS.AI, TOPICS.CONFIDENTIAL, TOPICS.SECURITY, TOPICS.GO];
